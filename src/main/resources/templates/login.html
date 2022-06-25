@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/miestilo.css}">
+</head>
+<body>
+
+<div class="container">
+	<header th:replace="layouts/header :: header"></header>
+	<div class="row">
+		<section class="col-sm-6 col-md-9 bg-light">
+			 <div class="conteiner">
+      
+        <div class="col-md -8 justify-content-left">
+        <form class="form" th:action="@{/login}" th:method="POST">
+        
+          <div class="col-md-6 mb-3">
+                   <label for="username">USUARIO</label>
+                   <div class="col-sm-5">
+                         <input type="text" class="form-control" id="username" name="username">
+                   </div>
+           </div>   
+        
+           <div class="col-md-6 mb-3">
+                   <label for="password">PASSWORD</label>
+                   <div class="col-sm-5">
+                         <input type="password" class="form-control" id="password" name="password">
+                   </div>
+           </div>   
+        
+          <button type="submit" class="btn btn-primary">Ingresar</button>
+        </form>
+        <div class="alert-danger text-center" th:if="${param.error}">CREDENCIALES INCORRECTAS
+        </div>
+   
+   
+   </div>
+</div>
+		</section>
+		
+	</div>	
+	<footer th:replace="layouts/footer :: footer"></footer>
+</div>
+ 
+<script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1/dist/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
