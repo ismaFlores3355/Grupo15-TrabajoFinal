@@ -2,10 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login y Registro</title>
-   <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <title>Registro Ciudadano</title>
 </head>
 <body class="body-registroCiudadano">
 
@@ -14,18 +16,21 @@
     <div class="container-fluid">
         <i class="bi bi-person-workspace me-1"></i>
         <a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav nav-flex-icons ml-auto ms-auto flex-row">
                 <li class="nav-item dropdown">
-                    <a class="nav-link  btn btn-outline-success me-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link  btn btn-outline-success me-3" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         Ciudadano
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link  btn btn-outline-success" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link  btn btn-outline-success" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         Empleador
                     </a>
                 </li>
@@ -42,36 +47,33 @@
     <main>
         <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" src="/images/logoRegistroCiudadano.png" alt="" width="72" height="57">
-            <h2  class="text-primary">INGRESO DE DATOS CIUDADANO</h2>
+            <h2 class="text-primary">INGRESO DE DATOS CIUDADANO</h2>
             <p class="lead text-muted">Ingresa tus datos correctamente para poder registrarte</p>
         </div>
-
         <div class="row g-5 d-flex justify-content-center">
             <div class="col-md-7 col-lg-8">
                 <form action="/ciudadano/guardarr" th:object="${ciudadano}" method="post">
-                     <!--  
-                     <input type="hidden" th:field="*{id}" />
-				     <input type="hidden" th:field="*{usuario.id}" />
-                    -->
-                   
+                    <!--
+                    <input type="hidden" th:field="*{id}" />
+                    <input type="hidden" th:field="*{usuario.id}" />
+                   -->
+                    <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="firstDni" class="form-label text-white">D.N.I</label>
                             <input type="text" class="form-control" id="firstDni" th:field="*{dni}">
-                         <div class="alert-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
+                            <div class="alert-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
                         </div>
-                          <br/>
-                      <div class="col-sm-6">
+                        <div class="col-sm-6">
                             <label for="NroTramite" class="form-label text-white">Nro de Tramite</label>
                             <input type="number" class="form-control" id="NroTramite" th:field="*{nroTramite}">
-                            <div class="alert-danger" th:if="${#fields.hasErrors('nroTramite')}" th:errors="*{nroTramite}"></div>
+                            <div class="alert-danger" th:if="${#fields.hasErrors('nroTramite')}"
+                                 th:errors="*{nroTramite}"></div>
                         </div>
-                         <br/>
                         <div class="col-12">
                             <label for="email" class="form-label text-white">Email</label>
                             <input type="email" class="form-control" id="email" th:field="*{email}">
                             <div class="alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
                         </div>
-                          <br/>
                         <div class="col-12">
                             <label for="country" class="form-label text-white">Estado Civil</label>
                             <select class="form-select" id="idEstadoCivil" th:field="*{estadoCivil}">
@@ -83,16 +85,15 @@
                                 <option value="3">Divorciado</option>
                                 <option value="4">Viudo</option>
                             </select>
-                            <div class="alert-danger" th:if="${#fields.hasErrors('estadoCivil')}" th:errors="*{estadoCivil}"></div>
+                            <div class="alert-danger" th:if="${#fields.hasErrors('estadoCivil')}"
+                                 th:errors="*{estadoCivil}"></div>
                         </div>
-                        <br/>
-                        
                         <div class="col-12">
                             <label for="country" class="form-label text-white">Provincia</label>
                             <select class="form-select" id="idProvincia" th:field="*{provincia}">
-                               <!-- 
-                                <option selected>Ingrese un opcion</option>
-                                -->
+                                <!--
+                                 <option selected>Ingrese un opcion</option>
+                                 -->
                                 <option value="1">Buenos Aires</option>
                                 <option value="2">Catamarca</option>
                                 <option value="3">Chacho</option>
@@ -117,33 +118,32 @@
                                 <option value="22">Corrientes</option>
                                 <option value="23">Misiones</option>
                             </select>
-                            <div class="alert-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+                            <div class="alert-danger" th:if="${#fields.hasErrors('provincia')}"
+                                 th:errors="*{provincia}"></div>
                         </div>
-                           <br/>
                         <div class="col-md-7">
                             <label for="idTelefono" class="form-label text-white">Telefono</label>
-                            <input type="number" class="form-control" id="idTelefono" placeholder="Ingrese Telefono" th:field="*{telefono}">
-                            <div class="alert-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+                            <input type="number" class="form-control" id="idTelefono" placeholder="Ingrese Telefono"
+                                   th:field="*{telefono}">
+                            <div class="alert-danger" th:if="${#fields.hasErrors('telefono')}"
+                                 th:errors="*{telefono}"></div>
                         </div>
-                          <br/>
-                          <div class="mb-3">
-					<label for="fechaId" class="form-label">Fecha de Nacimiento</label> 
-					<input th:field="*{fechaNacimiento}" type="date" class="form-control" id="fechaId" placeholder="Ingrese fecha de nac">
-					
-				    </div>
-                          
-                           <br/>
-                           <div class="col-md-7">
+                        <div class="col-md-5">
+                            <label for="fechaId" class="form-label">Fecha de Nacimiento</label>
+                            <input th:field="*{fechaNacimiento}" type="date" class="form-control" id="fechaId"
+                                   placeholder="Ingrese fecha de nac">
+                        </div>
+                        <div class="col-12">
                             <label for="idContras" class="form-label text-white">Contraseña</label>
-                            <input type="text" class="form-control" id="idContra" placeholder="Ingrese Fecha Naci" th:field="*{contrasenia}">
-                            <div class="alert-danger" th:if="${#fields.hasErrors('contrasenia')}" th:errors="*{contrasenia}"></div>
+                            <input type="text" class="form-control" id="idContra" placeholder="Ingrese contraseña"
+                                   th:field="*{contrasenia}">
+                            <div class="alert-danger" th:if="${#fields.hasErrors('contrasenia')}"
+                                 th:errors="*{contrasenia}"></div>
                         </div>
-                          
-			                <br/>
-				
-				
-				<input type="submit" value="Enviar" class="btn btn-primary">
-			</form>
+                    </div>
+                    <br/>
+                    <input class="w-100 btn btn-primary btn-lg" type="submit" value="Enviar">
+                </form>
                 <br>
             </div>
         </div>
@@ -151,8 +151,8 @@
 
 </div>
 
-    <footer th:replace="/layouts/footer :: footer"></footer>
-    <script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+<footer th:replace="/layouts/footer :: footer"></footer>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
 <script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1/dist/popper.min.js}"></script>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>
 </body>

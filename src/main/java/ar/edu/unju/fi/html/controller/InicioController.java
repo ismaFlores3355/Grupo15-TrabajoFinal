@@ -20,7 +20,7 @@ public class InicioController {
 	
 	@GetMapping("/home")
 	public String getPageHome() {
-		return "RegistroCiudadano";
+		return "VerCV";
 	}
 	
 	@GetMapping({"/","/login"})

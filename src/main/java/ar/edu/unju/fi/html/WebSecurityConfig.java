@@ -11,18 +11,16 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import ar.edu.unju.fi.html.service.imp.LoginUsuarioServiceImp;
 
-
-
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	AutenticacionSuccessHandler autenticacion;
-	
+
+	//
 	String[] resources = new String[]{
-            "/include/**","/css/**","/icons/**","/img/**","/js/**","/layer/**","/webjars/**"
+            "/include/**","/css/**","/icons/**","/img/**","/js/**","/layer/**","/webjars/**","/images/**"
     };
 	
 	@Override
@@ -46,14 +44,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.logoutSuccessUrl("/login");
 		http.csrf().disable();
 	}		
-	
-	
-	
-	
-	
+
 	BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Bean
+    /*@Bean
     public BCryptPasswordEncoder passwordEncoder() {
 		bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
         return bCryptPasswordEncoder;
@@ -65,5 +59,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
     	auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }
+    }*/
 }
