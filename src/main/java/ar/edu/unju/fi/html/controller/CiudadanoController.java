@@ -18,10 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.fi.html.entity.Ciudadano;
 import ar.edu.unju.fi.html.service.ICiudadanoService;
 
-
-
-
-
 @Controller
 public class CiudadanoController {
 
@@ -35,7 +31,6 @@ public class CiudadanoController {
 		return "RegistroCiudadano";
 	}
 	
-	
 	@PostMapping("/ciudadano/guardar")
 	public String getCiudadanoResultPage(@Valid @ModelAttribute("ciudadano") Ciudadano unCiudadano, BindingResult result, Model model) {
 		
@@ -46,8 +41,6 @@ public class CiudadanoController {
 			ciudadanoService.addCiudadano(unCiudadano);
 			return "resultado-empleado";			
 		}
-		
-
 	}
 	
 	@GetMapping("/ciudadano/listar")
@@ -59,6 +52,5 @@ public class CiudadanoController {
 		
 		return "lista-empleado";
 	}
-	
-	
+
 }
