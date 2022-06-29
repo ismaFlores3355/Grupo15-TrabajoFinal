@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Curriculum</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+</head>
+<body class="body-verCV">
+
+<!-- Barra de Navegacion -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <i class="bi bi-person-workspace me-1"></i>
+        <a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Crear Curriculum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ver Curriculum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Oferta Laboral</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inscripcion Curso</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav nav-flex-icons ml-auto ms-auto flex-row">
+                <li class="nav-item dropdown">
+                    <a class="nav-link  btn btn-outline-success me-3" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Salir
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- contenido del curriculum -->
+
+<div class="container justify-content-center container-card-VerCV">
+    <div class="row">
+        <form>
+            <div class="card ">
+                <div class="card-body" style="height: 300px;">
+                    <h1 class="text-center">CURRICULUM VITAE</h1>
+                  <!--  <img src="/images/anonimo.jpg"  align="right" alt="FondoAnonimo" class="card-img-anonimo" width="200" height="200">-->
+                    <table class="table">
+                        <table class="table-VerCV table table-borderless">
+                            <thead>
+                            <tr>
+                                <th>Apellido:</th>
+                                <th>Nombres:</th>
+                                <th>DNI:</th>
+                                <th>Domicilio</th>
+                                <th>Contacto:</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td data-label="Apellido:">Lorem ipsum dolor sit amet.</td>
+                                <td data-label="Nombres:">Lorem ipsum dolor sit amet.</td>
+                                <td data-label="DNI:">59213562</td>
+                                <td data-label="Domicilio:">Lorem ipsum dolor sit amet. 280</td>
+                                <td data-label="Contacto:">+543889694998</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </table>
+                </div>
+                <div class="card-header">
+                    <div>
+                        <h3>EXPERIENCIA LABORAL</h3>
+                        <ul>
+                            <li> Programacion</li>
+                            <li> Programacion</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>EDUCACION</h3>
+                        <ul>
+                            <li> Facultad de Ingenieria</li>
+                            <li> Facultad de Ingenieria</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>IDIOMAS</h3>
+                        <ul>
+                            <li>Español</li>
+                            <li>Ingles</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>CONOCIMIENTOS INFORMATICOS</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>C++</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>INFORMACION COMPLEMENTARIA</h3>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet. Est numquam molestias qui consectetur voluptate et quas
+                                voluptatem?
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>DATOS ADICIONALES</h3>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet. Est numquam molestias qui consectetur voluptate et quas
+                                voluptatem?
+                            </li>
+                            <li>Lorem ipsum dolor sit amet. Est numquam molestias qui consectetur voluptate et quas
+                                voluptatem?
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+</div>
+
+
+<footer th:replace="/layouts/footer :: footer"></footer>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</body>
+</html>

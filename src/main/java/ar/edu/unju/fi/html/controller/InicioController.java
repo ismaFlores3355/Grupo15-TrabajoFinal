@@ -23,15 +23,45 @@ public class InicioController {
 		return "VerCV";
 	}
 	
+	//pagina por defecto
 	@GetMapping({"/","/login"})
 	public String ingresar(Model model) {
+		return "index";
+	}
+	
+	
+	//login registro ciudadano
+	@GetMapping("/loginciu")
+	public String getPageCiudadano() {
 		return "loginRegistroCiudadano";
 	}
 	
+	//login para logearse con username y password en ciudadano
 	@GetMapping("/loginn")
 	public String getPageeHome() {
-		return "login";
+		return "LoginCiudadano";
 	}
+	
+	//login para logearse con username y password en empleador
+		@GetMapping("/logine")
+		public String getPageem() {
+			return "LoginEmpleador";
+		}
+	
+	
+	//portal para ciudadano
+		@GetMapping("/portal")
+		public String getPagePortal() {
+			return "InscripcionCurso";
+		}
+	
+	
+	//login registro empleador
+		@GetMapping("/loginemp")
+		public String getPageEmpleador() {
+			return "loginRegistroEmpleador";
+		}
+	
 	
 	
 	
@@ -69,6 +99,9 @@ public class InicioController {
 		
 		return "lista-ciudadano";
 	}
+	
+	
+	
 	
 	
 	

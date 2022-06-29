@@ -27,11 +27,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-			    .antMatchers(resources).permitAll()
-				.antMatchers("/", "/home","/loginn","/ciudadano/nuevoo","/ciudadano/guardarr").permitAll()
-				.antMatchers("/ciudadano/nuevo","/empleado/nuevo","/empleado/guardar","/ciudadano/nuevo", "/").hasAuthority("ADMIN")
-				.anyRequest().authenticated()
-				.and()
+			.antMatchers(resources).permitAll()
+			.antMatchers("/", "/home","/loginn","/logine","/ciudadano/nuevoo","/ciudadano/guardarr","/loginciu","/loginemp").permitAll()
+			.antMatchers("/ciudadano/nuevo","/empleado/nuevo","/empleado/guardar","/ciudadano/nuevo", "/loginRegistroCiudadano", "/").hasAuthority("ADMIN")
+			.anyRequest().authenticated()
+			.and()
 			.formLogin()
 				.loginPage("/login").permitAll()
 				.successHandler(autenticacion)
@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    /*@Bean
+    @Bean
     public BCryptPasswordEncoder passwordEncoder() {
 		bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
         return bCryptPasswordEncoder;
@@ -59,5 +59,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
     	auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }*/
+    }
 }

@@ -55,9 +55,9 @@ class ProyectoTest {
 		e1.setProvincia("eeee");
 		e1.setTelefono(123456789);
 		Usuario usu = new Usuario();
-		usu.setPassword("1234");
-		usu.setPerfil("ADMIN");
-		usu.setUsername("papan");
+		usu.setPassword("12345");
+		usu.setPerfil("CIUDADANO");
+		usu.setUsername("carlose");
 		e1.setUsuario(usu);
 		
 		
