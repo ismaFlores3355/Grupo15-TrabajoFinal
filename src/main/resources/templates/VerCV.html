@@ -64,6 +64,7 @@
                             <thead>
                             <tr>
                                 <th>Apellido:</th>
+                                <th>Apellido:</th>
                                 <th>Nombres:</th>
                                 <th>DNI:</th>
                                 <th>Domicilio</th>
@@ -72,7 +73,8 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td data-label="Apellido:">Lorem ipsum dolor sit amet.</td>
+                                
+                                <td th:text="${curriculum.apellido}"></td>
                                 <td data-label="Nombres:">Lorem ipsum dolor sit amet.</td>
                                 <td data-label="DNI:">59213562</td>
                                 <td data-label="Domicilio:">Lorem ipsum dolor sit amet. 280</td>
@@ -86,8 +88,9 @@
                     <div>
                         <h3>EXPERIENCIA LABORAL</h3>
                         <ul>
+                            <li> <a th:text="${curriculum.experienciaLaboral}"></a> </li>
                             <li> Programacion</li>
-                            <li> Programacion</li>
+                        
                         </ul>
                     </div>
                     <div>
@@ -134,6 +137,8 @@
 
                 </div>
             </div>
+            
+            <a href="card" download="cardaa">Descargar</a>
         </form>
     </div>
     <br>

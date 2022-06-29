@@ -28,11 +28,11 @@ public class AutenticacionSuccessHandler implements AuthenticationSuccessHandler
 		boolean tipoSocio = false;
 		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		for (GrantedAuthority grantedAuthority : authorities) {
-			if (grantedAuthority.getAuthority().equals("ADMIN")) {
+			if (grantedAuthority.getAuthority().equals("EMPLEADOR")) {
 				tipoAdmin = true;
 				break;
 			} else {
-				if (grantedAuthority.getAuthority().equals("CONSULTOR")) {
+				if (grantedAuthority.getAuthority().equals("CIUDADANO")) {
 					tipoConsultor = true;
 					break;
 			} else {
@@ -45,7 +45,7 @@ public class AutenticacionSuccessHandler implements AuthenticationSuccessHandler
 			redirectStrategy.sendRedirect(request, response, "/ciudadano/nuevoo");
 		} else {
 			if (tipoConsultor) {
-				redirectStrategy.sendRedirect(request, response, "/loginn");
+				redirectStrategy.sendRedirect(request, response, "/portal");
 		} else {
 			if (tipoSocio) {
 				redirectStrategy.sendRedirect(request, response, "/ciudadano/nuevoo");

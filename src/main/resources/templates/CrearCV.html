@@ -61,73 +61,74 @@
 
         <div class="row g-5 d-flex justify-content-center">
             <div class="col-md-7 col-lg-8">
-                <form class="needs-validation">
+                <form action="/curriculum/guardar" th:object="${curriculum}" method="post">
+                    
+                        
+                    
                     <div class="row g-3">
                         <div class="col-sm-6">
-                            <label for="idApellidoCiudadano" class="form-label text-white">Apellido</label>
-                            <input type="text" class="form-control" id="idDniCiudadano" placeholder="Ingrese Apellido"
-                                   value="" required>
+                            <label for="firstap" class="form-label text-white">Apellido</label>
+                            <input type="text" class="form-control" id="firstAp" th:field="*{apellido}" placeholder="Ingrese Apellido">
+                            <div class="alert-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="idNombresCiudadano" class="form-label text-white">Nombres</label>
-                            <input type="text" class="form-control" id="idNombresCiudadano"
-                                   placeholder="Ingrese Nombres" value="" required>
+                            <label for="firstape" class="form-label text-white">Nombres</label>
+                            <input type="text" class="form-control" id="firstApe" th:field="*{nombre}" placeholder="Ingrese Nombres">
+                            <div class="alert-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="idDniCiudadano" class="form-label text-white">D.N.I</label>
-                            <input type="number" class="form-control" id="email" placeholder="Ingrese Dni (sin puntos)">
+                            <label for="firstapz" class="form-label text-white">DNI</label>
+                            <input type="number" class="form-control" id="firstApz" th:field="*{dni}" placeholder="Ingrese Dni sin puntos">
+                            <div class="alert-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="idTelefonoCiudadano" class="form-label text-white">Telefono</label>
-                            <input type="number" class="form-control" id="idTelefonoCiudadano"
-                                   placeholder="Ingrese Telefono" value="" required>
+                            <label for="firstapz" class="form-label text-white">Contacto</label>
+                            <input type="number" class="form-control" id="firstApz" th:field="*{contacto}" placeholder="Ingrese Telefono">
+                            <div class="alert-danger" th:if="${#fields.hasErrors('contacto')}" th:errors="*{contacto}"></div>
 
                         </div>
 
                         <div class="col-12">
-                            <label for="idDomicilioCiudadano" class="form-label text-white">Domicilio</label>
-                            <input type="text" class="form-control" id="email" placeholder="Ingrese Domicilio">
+                            <label for="firstapze" class="form-label text-white">Domicilio</label>
+                            <input type="text" class="form-control" id="firstApz" th:field="*{domicilio}" placeholder="Ingrese Domicilio">
+                            <div class="alert-danger" th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
                         </div>
 
                         <div class="col-12">
-                            <label for="idExperienciaLaboralCiudadano" class="form-label text-white">Experiencia
-                                Laboral</label>
-                            <input type="text" class="form-control" id="idExperienciaLaboralCiudadano"
-                                   placeholder="Ingrese Experiencia Laboral" value="" required>
+                           <label for="firstapze" class="form-label text-white">Experiencia Laboral</label>
+                            <input type="text" class="form-control" id="firstApze" th:field="*{experienciaLaboral}" placeholder="Ingrese Experiencia Laboral">
+                            <div class="alert-danger" th:if="${#fields.hasErrors('experienciaLaboral')}" th:errors="*{experienciaLaboral}"></div>
                         </div>
 
                         <div class="col-12">
-                            <label for="idEducacionCiudadano" class="form-label text-white">Educacion</label>
-                            <input type="text" class="form-control" id="idEducacionCiudadano"
-                                   placeholder="Ingrese Educacion" required>
+                            <label for="firstapzee" class="form-label text-white">Educacion</label>
+                            <input type="text" class="form-control" id="firstApzee" th:field="*{educacion}" placeholder="Ingrese Educacion">
+                            <div class="alert-danger" th:if="${#fields.hasErrors('educacion')}" th:errors="*{educacion}"></div>
                         </div>
 
                         <div class="col-12">
-                            <label for="idIdiomasCiudadano" class="form-label text-white">Idiomas</label>
-                            <input type="text" class="form-control" id="idIdiomasCiudadano"
-                                   placeholder="Ingrese Idiomas" value="" required>
+                             <label for="firstapzee" class="form-label text-white">Idioma</label>
+                            <input type="text" class="form-control" id="firstApzee" th:field="*{idioma}" placeholder="Ingrese Idioma">
+                            <div class="alert-danger" th:if="${#fields.hasErrors('idioma')}" th:errors="*{idioma}"></div>
                         </div>
                         <div class="col-12">
-                            <label for="idConocimientosInformaticos" class="form-label text-white">Conocimientos
-                                Informaticos</label>
-                            <input type="text" class="form-control" id="idConocimientosInformaticos"
-                                   placeholder="Ingrese Conocimiento Informatico" value="" required>
+                             <label for="firstapzeee" class="form-label text-white">Conocimiento Informatico</label>
+                            <input type="text" class="form-control" id="firstApzeee" th:field="*{conocimientoInformatico}" placeholder="Ingrese Conocimiento Informatico">
+                            <div class="alert-danger" th:if="${#fields.hasErrors('conocimientoInformatico')}" th:errors="*{conocimientoInformatico}"></div>
                         </div>
                         <div class="col-12">
-                            <label for="idInformacionComplementariaCiudadano" class="form-label text-white">Informacion
-                                Complementaria</label>
-                            <input type="text" class="form-control" id="idInformacionComplementaria"
-                                   placeholder="Ingrese Informacion Complementaria" value="" required>
+                            <label for="firstapzeexe" class="form-label text-white">Informacion Complementaria</label>
+                            <input type="text" class="form-control" id="firstApzexee" th:field="*{informacionComplementaria}" placeholder="Ingrese Informacion Complementaria">
+                            <div class="alert-danger" th:if="${#fields.hasErrors('informacionComplementaria')}" th:errors="*{informacionComplementaria}"></div>
                         </div>
                         <div class="col-12">
-                            <label for="idDatosAdicionalesCiudadano" class="form-label text-white">Datos
-                                Adicionales</label>
-                            <input type="text" class="form-control" id="idDatosAdicionalesCiudadano"
-                                   placeholder="Ingrese Datos Adicionales" value="" required>
-                        </div>
+                            <label for="firstapzeeef" class="form-label text-white">Dato Adicional</label>
+                            <input type="text" class="form-control" id="firstApzeeef" th:field="*{datoAdicional}" placeholder="Ingrese Dato Adicional">
+                            <div class="alert-danger" th:if="${#fields.hasErrors('datoAdicional')}" th:errors="*{datoAdicional}"></div>
+                        </div>           
 
                     </div>
                     <br>

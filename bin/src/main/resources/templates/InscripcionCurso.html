@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscripcion Curso</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+</head>
+<body class="body-InscripcionCurso">
+<!-- Barra de Navegacion -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <i class="bi bi-person-workspace me-1"></i>
+        <a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Crear Curriculum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ver Curriculum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Oferta Laboral</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inscripcion Curso</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav nav-flex-icons ml-auto ms-auto flex-row">
+                <li class="nav-item dropdown">
+                    <a class="nav-link  btn btn-outline-success me-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Cerrar Sesion
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css /> -->
+<div class="container justify-content-center">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-sm-3 col-xs-12">
+                            <h4 class="title">Cursos</h4>
+                        </div>
+                        <div class="col-sm-9 col-xs-12 text-right">
+                            <div class="btn_group">
+                                <input type="text" class="form-control" placeholder="Buscar por categoria">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Cierre</th>
+                            <th>Horas</th>
+                            <th>Modalidad</th>
+                            <th>Categoria</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Ingles Inicial</td>
+                            <td>01/07/2022</td>
+                            <td>01/08/2022</td>
+                            <td>40</td>
+                            <td>Virtual</td>
+                            <td>Ingles</td>
+                            <td>
+                                <a href="#" id="InscripcionCurso" class="btn btn-outline-light">Inscribirse</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Ingles Medio</td>
+                            <td>05/08/2022</td>
+                            <td>05/10/2022</td>
+                            <td>50</td>
+                            <td>Virtual</td>
+                            <td>Ingles</td>
+                            <td>
+                                <a href="#" id="InscripcionCurso" class="btn btn-outline-light">Inscribirse</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Ingles Avazando</td>
+                            <td>10/07/2022</td>
+                            <td>10/11/2022</td>
+                            <td>70</td>
+                            <td>Precensial</td>
+                            <td>Ingles</td>
+                            <td>
+                                <a href="#" id="InscripcionCurso" class="btn btn-outline-light">Inscribirse</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Programacion 1</td>
+                            <td>17/07/2022</td>
+                            <td>18/09/2022</td>
+                            <td>50</td>
+                            <td>Precensial</td>
+                            <td>Programacion</td>
+                            <td>
+                                <a href="#" id="InscripcionCurso" class="btn btn-outline-light">Inscribirse</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Programacion 2</td>
+                            <td>19/09/2022</td>
+                            <td>19/11/2022</td>
+                            <td>70</td>
+                            <td>Precensial</td>
+                            <td>Programacion</td>
+                            <td>
+                                <a href="#" id="InscripcionCurso" class="btn btn-outline-light">Inscribirse</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Java</td>
+                            <td>20/07/2022</td>
+                            <td>21/12/2022</td>
+                            <td>150</td>
+                            <td>Virtual</td>
+                            <td>Programacion</td>
+                            <td>
+                                <a href="#" id="InscripcionCurso" class="btn btn-outline-light">Inscribirse</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<footer th:replace="/layouts/footer :: footer"></footer>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Oferta Laboral</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+</head>
+<body class="body-OfertaLaboral">
+
+<!-- Barra de Navegacion -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <i class="bi bi-person-workspace me-1"></i>
+        <a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Crear Curriculum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ver Curriculum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Oferta Laboral</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inscripcion Curso</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav nav-flex-icons ml-auto ms-auto flex-row">
+                <li class="nav-item dropdown">
+                    <a class="nav-link  btn btn-outline-success me-3" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Cerrar Sesion
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- contenido de la Oferta Laboral
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Cantidad de Vacantes</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+    <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+    </div>
+</div>-->
+<!-- Flexbox container for aligning the toasts -->
+
+<div class="container container-card-OfertaLaboral">
+    <div class="d-flex justify-content-center">
+        <div class="card" style="width: 80rem;">
+            <div class="card-footer-OfertaLaboral">
+                <h3 class="card-title text-center text-white">Se Busca</h3>
+            </div>
+            <div class="card-body card-body-OfertaLaboral">
+                <table class="table-OfertaLaboral table table-borderless table-hover">
+                    <thead>
+                      <tr>
+                          <th>N° Vacante</th>
+                          <th>Puesto Requerido</th>
+                          <th>Resumen de puesto</th>
+                          <th>Disponibilidad Horaria</th>
+                          <th>Principales Tareas</th>
+                          <th>Datos de Contacto</th>
+                          <th>Jornada</th>
+                          <th>Requisitos</th>
+                          <th>Salario</th>
+                          <th>Beneficios</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="N° Vacante">1</td>
+                            <td data-label="Puesto Requerido">2</td>
+                            <td data-label="Resumen de puesto">3</td>
+                            <td data-label="Disponibilidad Horaria">4</td>
+                            <td data-label="Principales Tareas">5</td>
+                            <td data-label="Datos de Contacto">6</td>
+                            <td data-label="Requisitos">7</td>
+                            <td data-label="Salario">8</td>
+                            <td data-label="Beneficios">9</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="card-footer-OfertaLaboral">
+                <p class="card-text text-center text-white">Si quieres formar parte de nuestra comunidad dale al boton de Solicitar</p>
+                <a href="#" class="btn btn-outline-light btn-lg ">Solicitar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer th:replace="/layouts/footer :: footer"></footer>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</body>
+</html>
