@@ -4,9 +4,6 @@ import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
-
-
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,11 +11,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Component
@@ -31,8 +33,8 @@ public class Ciudadano {
 	private Long id;
 	
 	@Column(name="dni")
-	//@Min(value=1_000_000, message = "El dni debe ser mayor o igual a 1.000.000")
-	private String dni;
+	@Min(value=100000, message = "El dni debe ser mayor o igual a 1.000.000")
+	private int dni;
 
 	@Column(name="nrotramite")
 	//@NotBlank(message = "En nro de tramite no puede estar vacio")
@@ -74,8 +76,31 @@ public class Ciudadano {
 	@JoinColumn(name = "usu_id")
 	private Usuario usuario;
 	
+	@Autowired
+	@ManyToOne
+	@JoinColumn(name="suc_id")
+	private Empleador empleador;
+
+
+	@OneToMany(mappedBy = "empleadorr")
+	private List<Empleador> empleados;
 	
-	
+	public Empleador getEmpleador() {
+		return empleador;
+	}
+
+	public void setEmpleador(Empleador empleador) {
+		this.empleador = empleador;
+	}
+
+	public List<Empleador> getEmpleados() {
+		return empleados;
+	}
+
+	public void setEmpleados(List<Empleador> empleados) {
+		this.empleados = empleados;
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -92,11 +117,11 @@ public class Ciudadano {
 		this.id = id;
 	}
 
-	public String getDni() {
+	public @Min(value = 100000, message = "El dni debe ser mayor o igual a 1.000.000") int getDni() {
 		return dni;
 	}
 
-	public void setDni(String dni) {
+	public void setDni(@Min(value = 100000, message = "El dni debe ser mayor o igual a 1.000.000") int dni) {
 		this.dni = dni;
 	}
 
@@ -164,7 +189,7 @@ public class Ciudadano {
 		this.perfil = perfil;
 	}
 
-	public Ciudadano(Long id, String dni, int nroTramite, @Email @NotEmpty String email,
+	public Ciudadano(Long id, @Min(value = 100000, message = "El dni debe ser mayor o igual a 1.000.000") int dni, int nroTramite, @Email @NotEmpty String email,
 			@NotEmpty(message = "El estado civil no puede estar vacio") String estadoCivil,
 			@NotEmpty(message = "La provincia no estar vacia") String provincia, int telefono,
 			LocalDate fechaNacimiento, @NotBlank(message = "La contraseña no puede estar vacia") String contrasenia,

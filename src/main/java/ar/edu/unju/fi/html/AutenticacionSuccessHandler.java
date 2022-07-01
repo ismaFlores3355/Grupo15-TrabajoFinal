@@ -42,7 +42,7 @@ public class AutenticacionSuccessHandler implements AuthenticationSuccessHandler
 		}
 		}
 		if (tipoAdmin) {
-			redirectStrategy.sendRedirect(request, response, "/ciudadano/nuevoo");
+			redirectStrategy.sendRedirect(request, response, "/portal2");
 		} else {
 			if (tipoConsultor) {
 				redirectStrategy.sendRedirect(request, response, "/portal");

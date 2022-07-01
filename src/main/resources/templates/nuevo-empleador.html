@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Curriculum</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+</head>
+<body class="body-registroCiudadano">
+
+<!-- Barra de Navegacion -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <i class="bi bi-person-workspace me-1"></i>
+        <a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Crear Curriculum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ver Curriculum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Oferta Laboral</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inscripcion Curso</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav nav-flex-icons ml-auto ms-auto flex-row">
+                <li class="nav-item dropdown">
+                    <a class="nav-link  btn btn-outline-success me-3" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Salir
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Ingreso de Datos -->
+
+<div class="container">
+	
+	<div class="row">
+		<section class="col-sm-6 col-md-9 bg-light">
+          
+          
+          
+		
+		
+		
+          
+          
+          
+          
+          
+          
+			<h3>GESTION DE SUCURSAL</h3>
+			<form action="/empleador/guardaR" th:object="${empleador}" method="get">
+				
+				
+				 <input type="hidden" th:field="*{id}" />
+				<input type="hidden" th:field="*{usuario.id}" />
+				
+				
+				<label for="txtapelfslido" class="form-label">Cuit</label>
+				<input id="txtapelldsido" class="form-control form-control-sm" type="number" th:field="*{cuit}" placeholder="Ingrese cuit...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('cuit')}" th:errors="*{cuit}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txtapellido" class="form-label">Contraseña</label>
+				<input id="txtapellido" class="form-control form-control-sm" type="text" th:field="*{contrasenia}" placeholder="Ingrese contrasenia...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('contrasenia')}" th:errors="*{contrasenia}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txtfslido" class="form-label">Razon Social</label>
+				<input id="txtapdsido" class="form-control form-control-sm" type="text" th:field="*{razons}" placeholder="Ingrese razon social...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('razons')}" th:errors="*{razons}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txtapellido" class="form-label">Nombre Comercial</label>
+				<input id="txtapellido" class="form-control form-control-sm" type="text" th:field="*{nombrec}" placeholder="Ingrese nombre comercial...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('nombrec')}" th:errors="*{nombrec}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txtapellido" class="form-label">Email</label>
+				<input id="txtapellido" class="form-control form-control-sm" type="text" th:field="*{email}" placeholder="Ingrese email...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txtdsdo" class="form-label">Fecha Inicial</label>
+				<input id="txtapfso" class="form-control form-control-sm" type="date" th:field="*{fechaInicioa}" placeholder="Ingrese fecha de inicio...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('fechaInicioa')}" th:errors="*{fechaInicioa}"></div>	
+				<br/>
+				<br/>
+				<label for="txfslido" class="form-label">Telefono</label>
+				<input id="txtadsido" class="form-control form-control-sm" type="number" th:field="*{telefono}" placeholder="Ingrese telefono...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txfsido" class="form-label">Domicilio</label>
+				<input id="txtapfsdo" class="form-control form-control-sm" type="text" th:field="*{domicilio}" placeholder="Ingrese domicilio...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txtdsido" class="form-label">Provincia</label>
+				<input id="txtfsllido" class="form-control form-control-sm" type="text" th:field="*{provincia}" placeholder="Ingrese provincia...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txfssido" class="form-label">Pagina Web</label>
+				<input id="txtfdsdo" class="form-control form-control-sm" type="text" th:field="*{paginaw}" placeholder="Ingrese pagina web...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('paginaw')}" th:errors="*{paginaw}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txfsido" class="form-label">Descripcion</label>
+				<input id="txtfsdsdo" class="form-control form-control-sm" type="text" th:field="*{descripcion}" placeholder="Ingrese descripcion...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>	
+				<br/>
+				<label for="idEncargado" class="form-label form-label">Encargado</label>
+				<select class="form-control" th:field="*{empleador.id}">
+					<option th:each=" e: ${ofertas}" th:value="${e.id}" >
+						<spam th:text="${e.puestorequerido}"></spam>-<spam th:text="${e.disponibilidadh}"></spam>
+					</option>
+				</select><br/>
+				<input type="submit" value="enviar" class="btn btn-primary">
+			
+			
+			 <label for="idNosdsal" class="form-label text-white">DATOS DE USUARIO</label>
+                   <br/>
+				<label for="idNombreComercial" class="form-label text-white">Nombre de Usuario</label>
+				<input type="text" class="form-control form-control-sm"  th:field="*{usuario.username}">
+				<div class="alert-danger" th:if="${#fields.hasErrors('usuario.username')}" th:errors="*{usuario.username}"></div>
+				
+				<br/>
+
+				<label for="idNombsfsal" class="form-label text-white">Password</label>
+				<input type="password" class="form-control form-control-sm"  th:field="*{usuario.password}">
+				<div class="alert-danger" th:if="${#fields.hasErrors('usuario.password')}" th:errors="*{usuario.password}"></div>
+				<br/>
+
+				<div class="col-12">
+                            <label for="country" class="form-label text-white">Perfil</label>
+                            <select class="form-select" id="idEfsfsCivil" th:field="*{usuario.perfil}">
+                               
+                                <option value="EMPLEADOR">EMPLEADOR</option>
+                                
+                            </select>
+                            <div class="alert-danger" th:if="${#fields.hasErrors('usuario.perfil')}"
+                                 th:errors="*{usuario.perfil}"></div>
+                        </div>		 
+				<br/>
+			
+			
+			
+			
+			
+			
+			
+			
+			</form>
+
+		</section>
+		
+	</div>	
+	
+</div>
+ 
+<footer th:replace="/layouts/footer :: footer"></footer>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Curriculum</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+</head>
+<body class="body-registroCiudadano">
+
+<!-- Barra de Navegacion -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <i class="bi bi-person-workspace me-1"></i>
+        <a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Crear Curriculum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ver Curriculum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Oferta Laboral</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inscripcion Curso</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav nav-flex-icons ml-auto ms-auto flex-row">
+                <li class="nav-item dropdown">
+                    <a class="nav-link  btn btn-outline-success me-3" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Salir
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Ingreso de Datos -->
+<div class="container ">
+    <main>
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="images/logoRegistroCiudadano.png" alt="" width="72" height="57">
+            <h1 class="text-primary">CREAR OFERTA LABORAL</h1>
+            <p class="lead text-white">Ingresa datos para una oferta laboral</p>
+        </div>
+	<div class="row">
+		<section class="col-sm-6 col-md-9 bg-light">
+			<h3>GESTION DE OFERTAS LABORALES</h3>
+			<form action="/oferta/guardar" th:object="${oferta}" method="post">
+				<input type="hidden" th:field="*{id}" />
+				<!--  
+				<input type="hidden" th:field="*{usuario.id}" />
+				-->
+				
+				<label for="txtlegajo" class="form-label form-label">Cantidad de Vacantes</label>
+				<input id="txtlegajo" type="number" class="form-control form-control-sm"  th:field="*{cantvacantes}">
+				<div class="alert-danger" th:if="${#fields.hasErrors('cantvacantes')}" th:errors="*{cantvacantes}"></div>	
+
+				<br/>
+				
+				<br/>
+				<label for="txtapellido" class="form-label">Puesto Requerido</label>
+				<input id="txtapellido" class="form-control form-control-sm" type="text" th:field="*{puestorequerido}" placeholder="Ingrese puesto requerido...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('puestorequerido')}" th:errors="*{puestorequerido}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txtapellidosa" class="form-label">Resumen del Puesto</label>
+				<input id="txtapellidosa" class="form-control form-control-sm" type="text" th:field="*{resumendelp}" placeholder="Ingrese resumen del puesto...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('resumendelp')}" th:errors="*{resumendelp}"></div>	
+				<br/>
+				<br/>
+				<label for="txtapellisado" class="form-label">Disponibilidad Horaria</label>
+				<input id="txtapelliddso" class="form-control form-control-sm" type="text" th:field="*{disponibilidadh}" placeholder="Ingrese Dispon Horaria...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('disponibilidadh')}" th:errors="*{disponibilidadh}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txtadsllido" class="form-label">Principales Tareas</label>
+				<input id="txtapefdido" class="form-control form-control-sm" type="text" th:field="*{princ_tareas}" placeholder="Ingrese Principales Tareas...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('princ_tareas')}" th:errors="*{princ_tareas}"></div>	
+				<br/>
+				
+				
+				<br/>
+				<label for="txtadsllido" class="form-label">Contacto</label>
+				<input id="txtapefddsdo" class="form-control form-control-sm" type="text" th:field="*{contacto}" placeholder="Ingrese Telefono...">
+				<br/>
+				
+				<br/>
+				<label for="txtadsllido" class="form-label">Jornada</label>
+				<input id="txtapefdfido" class="form-control form-control-sm" type="text" th:field="*{jornada}" placeholder="Ingrese jornada...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('jornada')}" th:errors="*{jornada}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txtadsllido" class="form-label">Principales Tareas</label>
+				<input id="txtapefdido" class="form-control form-control-sm" type="text" th:field="*{requisitos}" placeholder="Ingrese Requisitos...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('requisitos')}" th:errors="*{requisitos}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txfdllido" class="form-label">Salario</label>
+				<input id="txtapfsddo" class="form-control form-control-sm" type="number" th:field="*{salario}" placeholder="Ingrese Salario...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('salario')}" th:errors="*{salario}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txtadsllido" class="form-label">Beneficios</label>
+				<input id="txtapefdido" class="form-control form-control-sm" type="text" th:field="*{beneficios}" placeholder="Ingrese Beneficios...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('beneficios')}" th:errors="*{beneficios}"></div>	
+				<br/>
+				
+	
+				<!-- 
+				<h3>DATOS DE USUARIO</h3>
+				<label class="form-label">Nombre de Usuario</label>
+				<input type="text" class="form-control form-control-sm"  th:field="*{usuario.username}">
+				<div class="alert-danger" th:if="${#fields.hasErrors('usuario.username')}" th:errors="*{usuario.username}"></div>
+				
+				<br/>
+
+				<label class="form-label">Password</label>
+				<input type="password" class="form-control form-control-sm"  th:field="*{usuario.password}">
+				<div class="alert-danger" th:if="${#fields.hasErrors('usuario.password')}" th:errors="*{usuario.password}"></div>
+				<br/>
+
+				<label class="form-label">Perfil</label>
+				<input type="text" class="form-control form-control-sm"  th:field="*{usuario.perfil}">				
+				<div class="alert-danger" th:if="${#fields.hasErrors('usuario.perfil')}" th:errors="*{usuario.perfil}"></div>		 
+				<br/>
+				 -->
+				
+				<input type="submit" value="Enviar" class="btn btn-primary">
+			</form>
+
+		</section>
+	
+	</div>	
+	
+</div>
+ 
+<footer th:replace="/layouts/footer :: footer"></footer>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</body>
+</html>

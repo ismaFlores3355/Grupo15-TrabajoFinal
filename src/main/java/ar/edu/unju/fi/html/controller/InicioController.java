@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.html.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +13,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import ar.edu.unju.fi.html.entity.Ciudadano;
+import ar.edu.unju.fi.html.entity.Empleador;
 import ar.edu.unju.fi.html.service.ICiudadanoService;
+import ar.edu.unju.fi.html.service.IEmpleadorService;
+import ar.edu.unju.fi.html.service.IOfertaService;
 
 @Controller
 public class InicioController {
@@ -54,6 +60,12 @@ public class InicioController {
 		public String getPagePortal() {
 			return "InscripcionCurso";
 		}
+		
+		//portal para empleador
+				@GetMapping("/portal2")
+				public String getPagePortal2() {
+					return "InscripcionCurso2";
+				}
 	
 	
 	//login registro empleador
@@ -61,10 +73,65 @@ public class InicioController {
 		public String getPageEmpleador() {
 			return "loginRegistroEmpleador";
 		}
+		
+		
+		//nuevo empleador
+				@GetMapping("/nuevoemp")
+				public String getPageEmpleadorr() {
+					return "nuevo-empleador";
+				}
+		
+	//EMPLEADOR PARA PERMITIR EL ACCESOS AL REGISTRO
+				
+				@Autowired
+				@Qualifier("ofertaServiceMysql")
+				IOfertaService ofertaService;
+				
+				@Autowired
+				@Qualifier("empleadorServiceMysql")
+				IEmpleadorService empleadorService;
+				@Autowired
+				Empleador empleador;
+				
+				
+				
+				@GetMapping("/empleador/nuevoR")
+				public String getSucursalFormPage(Model model) {
+					
+					model.addAttribute("empleador", this.empleador);
+					
+					model.addAttribute("ofertas",  ofertaService.getAllOfertas());
+					return "nuevo-empleador";
+				
+				}	
+				@GetMapping("/empleador/guardarR")
+				public String getEmpleadoResultPage(Model model, 
+						@RequestParam(name="id") String id,
+						@RequestParam(name="cuit") String cuit,
+						@RequestParam(name="provincia") String provincia,
+						@RequestParam(name="empleador.id") String empleadorid) {
+					
+					Empleador em = new Empleador();
+					
+					
+					em.setProvincia(provincia);
+					em.setCuit(Integer.valueOf(cuit));
+					em.setEmpleador(this.ofertaService.getUnaOferta(Long.valueOf(empleadorid)).orElseThrow());
+					
+					empleadorService.addSucursal(em);
+					
+					model.addAttribute("empleadores", empleadorService.getEmpleadores());
+					return "LoginRegistroEmpleador";
+				}			
+		
+		
+		
+				
+		
 	
 	
 	
-	
+	//CIUDADANO PARA PERMITIR EL ACCESO AL REGISTRO
 	@Autowired
 	@Qualifier("ciudadanoServiceMysql")
 	ICiudadanoService ciudadanoService;

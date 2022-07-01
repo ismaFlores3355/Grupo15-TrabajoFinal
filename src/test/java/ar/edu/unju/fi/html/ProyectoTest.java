@@ -47,7 +47,7 @@ class ProyectoTest {
 		
 		Ciudadano e1 = new Ciudadano();
 		e1.setContrasenia("aae");
-		e1.setDni("eea");
+		e1.setDni(111111111);
 		e1.setEmail("aa@aae");
 		e1.setEstadoCivil("ADMIN");
 		e1.setNroTramite(12);
