@@ -32,7 +32,7 @@ public class CiudadanoServiceImp implements ICiudadanoService {
 
 	@Override
 	public Ciudadano getCiudadano() {
-		this.ciudadano.setDni("aa");
+		//this.ciudadano.setDni("aa");
 		return this.ciudadano;
 	}
 
