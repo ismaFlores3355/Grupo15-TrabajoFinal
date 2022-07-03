@@ -25,9 +25,9 @@
                     <a class="nav-link  btn btn-outline-success me-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Ciudadano
                     </a>
-                </li>v
+                </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link  btn btn-outline-success" th:href="@{/empleador/loginRegistro}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link  btn btn-outline-success" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Empleador
                     </a>
                 </li>
@@ -50,8 +50,9 @@
 
         <div class="row g-5 d-flex justify-content-center">
             <div class="col-md-7 col-lg-8">
-                <form  th:action="@{/empleador/guardar}" th:object=${empleadores} method="POST">
-                    <div class="row g-3">
+                <form  th:action="@{/empleador/guardarr}" th:object=${empleador} method="post">
+                         <input type="hidden" th:field="*{id}" />
+				          <input type="hidden" th:field="*{usuario.id}" />
                         <div class="col-sm-6">
                             <label for="idCuitEmpleador" class="form-label text-white">C.I.U.T</label>
                             <input th:field = "*{cuit}" type="number" class="form-control" id="idCuitEmpleador" placeholder="Ingrese ciut (sin guiones)">
@@ -60,51 +61,53 @@
 
                         <div class="col-sm-6">
                             <label for="idContraseña" class="form-label text-white">Contraeña</label>
-                            <input th:field="*{contraseña}" type="text" class="form-control" id="idContraseña" placeholder="Ingrese contraseña">
-                            <div class="text-info" th:if="${#fields.hasErrors('contraseña')}" th:errors="*{contraseña}"></div>
+                            <input th:field="*{contrasenia}" type="text" class="form-control" id="idContraseña" placeholder="Ingrese contraseña">
+                            <div class="text-info" th:if="${#fields.hasErrors('contrasenia')}" th:errors="*{contrasenia}"></div>
                         </div>
 
                         <div class="col-12">
                             <label for="idRazonSocial" class="form-label text-white">Razon Social</label>
-                            <input th:field="*{razonSocial}" type="text" class="form-control" id="idRazonSocial" placeholder="Ingrese razon social">
-                            <div class="text-info" th:if="${#fields.hasErrors('razonSocial')}" th:errors="*{razonSocial}"></div>
+                            <input th:field="*{razons}" type="text" class="form-control" id="idRazonSocial" placeholder="Ingrese razon social">
+                            <div class="text-info" th:if="${#fields.hasErrors('razons')}" th:errors="*{razons}"></div>
                         </div>
 
                         <div class="col-12">
                             <label for="idNombreComercial" class="form-label text-white">Nombre Comercial</label>
-                            <input th:field="*{nombreComercial}" type="text" class="form-control" id="idNombreComercial" placeholder="Ingrese nombre comercial">
-                            <div class="text-info" th:if="${#fields.hasErrors('nombreComercial')}" th:errors="*{nombreComercial}"></div>
+                            <input th:field="*{nombrec}" type="text" class="form-control" id="idNombreComercial" placeholder="Ingrese nombre comercial">
+                            <div class="text-info" th:if="${#fields.hasErrors('nombrec')}" th:errors="*{nombrec}"></div>
                         </div>
 
                         <div class="col-12">
                             <label for="country" class="form-label text-white">Provincia</label>
-                            <select th:field="*{provincia}" class="form-select" id="idProvincia">
-                                <option value="" selected>Ingrese un opcion</option>
-                                <option value="">Buenos Aires</option>
-                                <option value="">Catamarca</option>
-                                <option value="">Chacho</option>
-                                <option value="">Chubut</option>
-                                <option value="">Cordoba</option>
-                                <option value="">Entre Rios</option>
-                                <option value="">Formosa</option>
-                                <option value="">Jujuy</option>
-                                <option value="">La Pampa</option>
-                                <option value="">La Rioja</option>
-                                <option value="">Mendoza</option>
-                                <option value="">Neuquen</option>
-                                <option value="">Rio Negro</option>
-                                <option value="">Salta</option>
-                                <option value="">San Juan</option>
-                                <option value="">San Juan</option>
-                                <option value="">Santa Cruz</option>
-                                <option value="">Santiago del Estero</option>
-                                <option value="">Tierra del Fuego</option>
-                                <option value="">Tucuman</option>
-                                <option value="">Santa Fe</option>
-                                <option value="">Corrientes</option>
-                                <option value="">Misiones</option>
+                            <select class="form-select" id="idProvincia" th:field="*{provincia}">
+                                <!--
+                                 <option selected>Ingrese un opcion</option>
+                                 -->
+                                <option value="Buenos Aires">Buenos Aires</option>
+                                <option value="Catamarca">Catamarca</option>
+                                <option value="Chaco">Chacho</option>
+                                <option value="Chubut">Chubut</option>
+                                <option value="Cordoba">Cordoba</option>
+                                <option value="Entre Rios">Entre Rios</option>
+                                <option value="Formosa">Formosa</option>
+                                <option value="Jujuy">Jujuy</option>
+                                <option value="La Pampa">La Pampa</option>
+                                <option value="La Rioja">La Rioja</option>
+                                <option value="Mendoza">Mendoza</option>
+                                <option value="Neuquen">Neuquen</option>
+                                <option value="Rio Negro">Rio Negro</option>
+                                <option value="Salta">Salta</option>
+                                <option value="San Juan">San Juan</option>
+                                <option value="Santa Cruz">Santa Cruz</option>
+                                <option value="Santiago del Estero">Santiago del Estero</option>
+                                <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                <option value="Tucuman">Tucuman</option>
+                                <option value="Santa Fe">Santa Fe</option>
+                                <option value="Corrientes">Corrientes</option>
+                                <option value="Misiones">Misiones</option>
                             </select>
-                            <div class="text-info" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+                            <div class="alert-danger" th:if="${#fields.hasErrors('provincia')}"
+                                 th:errors="*{provincia}"></div>
                         </div>
 
                         <div class="col-md-7">
@@ -114,9 +117,9 @@
                         </div>
 
                         <div class="col-md-5">
-                            <label for="idInicioActividad" class="form-label text-white">Inicio de Actividad</label>
-                            <input th:field="*{inicioActividad}" type="date" class="form-control" id="idInicioActividad">
-                            <div class="text-info" th:if="${#fields.hasErrors('inicioActividad')}" th:errors="*{inicioActividad}"></div>
+                           <label for="txtdsdo" class="form-label">Fecha Inicial</label>
+				<input id="txtapfso" class="form-control form-control-sm" type="date" th:field="*{fechaInicioa}" placeholder="Ingrese fecha de inicio...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('fechaInicioa')}" th:errors="*{fechaInicioa}"></div>	
                         </div>
 
                         <div class="col-12">
@@ -130,19 +133,51 @@
                             <input  th:field="*{domicilio}" type="text" class="form-control" id="idDomicilio" placeholder="Ingrese domicilio">
                             <div class="text-info" th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
                         </div>
-                        <div class="col-12">
-                            <label for="idPaginaWeb" class="form-label text-white">Pagina Web</label>
-                            <input th:field="*{paginaWeb}" type="text" class="form-control" id="idPaginaWeb" placeholder="Ingrese pagina web">
-                            <div class="text-info" th:if="${#fields.hasErrors('paginaWeb')}" th:errors="*{paginaWeb}"></div>
-                        </div>
-                        <div class="col-12">
-                            <label for="idDescripcion" class="form-label text-white">Descripcion</label>
-                            <input th:field="*{descripcion}" type="text" class="form-control" id="idDescripcion" placeholder="Ingrese descripcion">
-                            <div class="text-info" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>
-                        </div>
-                    </div>
-                    <br>
-                    <button class="w-100 btn btn-primary btn-lg" type="submit">REGISTRARSE</button>
+                        <br/>
+				<label for="txfssido" class="form-label">Pagina Web</label>
+				<input id="txtfdsdo" class="form-control form-control-sm" type="text" th:field="*{paginaw}" placeholder="Ingrese pagina web...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('paginaw')}" th:errors="*{paginaw}"></div>	
+				<br/>
+				
+				<br/>
+				<label for="txfsido" class="form-label">Descripcion</label>
+				<input id="txtfsdsdo" class="form-control form-control-sm" type="text" th:field="*{descripcion}" placeholder="Ingrese descripcion...">
+				<div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>	
+				<br/>
+                    
+                    
+                    
+                    
+                    <label for="idNosdsal" class="form-label text-white">DATOS DE USUARIO</label>
+                   <br/>
+				<label for="idNombreComercial" class="form-label text-white">Nombre de Usuario</label>
+				<input type="text" class="form-control form-control-sm"  th:field="*{usuario.username}">
+				<div class="alert-danger" th:if="${#fields.hasErrors('usuario.username')}" th:errors="*{usuario.username}"></div>
+				
+				<br/>
+
+				<label for="idNombsfsal" class="form-label text-white">Password</label>
+				<input type="password" class="form-control form-control-sm"  th:field="*{usuario.password}">
+				<div class="alert-danger" th:if="${#fields.hasErrors('usuario.password')}" th:errors="*{usuario.password}"></div>
+				<br/>
+
+				<div class="col-12">
+                            <label for="country" class="form-label text-white">Perfil</label>
+                            <select class="form-select" id="idgagail" th:field="*{usuario.perfil}">
+                               
+                                <option value="EMPLEADOR">EMPLEADOR</option>
+                                
+                            </select>
+                            <div class="alert-danger" th:if="${#fields.hasErrors('usuario.perfil')}"
+                                 th:errors="*{usuario.perfil}"></div>
+                        </div>		 
+				<br/>
+                    
+                    
+                    
+                    
+                    
+                    <input class="w-100 btn btn-primary btn-lg" type="submit" value="Enviar">
                 </form>
                 <br>
             </div>

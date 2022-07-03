@@ -42,6 +42,12 @@ public class InicioController {
 		return "loginRegistroCiudadano";
 	}
 	
+	//login registro empleador
+			@GetMapping("/loginemp")
+			public String getPageEmpleador() {
+				return "loginRegistroEmpleador";
+			}
+	
 	//login para logearse con username y password en ciudadano
 	@GetMapping("/loginn")
 	public String getPageeHome() {
@@ -55,74 +61,46 @@ public class InicioController {
 		}
 	
 	
-	//portal para ciudadano
-		@GetMapping("/portal")
-		public String getPagePortal() {
-			return "InscripcionCurso";
-		}
-		
-		//portal para empleador
-				@GetMapping("/portal2")
-				public String getPagePortal2() {
-					return "InscripcionCurso2";
-				}
-	
-	
-	//login registro empleador
-		@GetMapping("/loginemp")
-		public String getPageEmpleador() {
-			return "loginRegistroEmpleador";
-		}
 		
 		
-		//nuevo empleador
-				@GetMapping("/nuevoemp")
-				public String getPageEmpleadorr() {
-					return "nuevo-empleador";
-				}
+		
 		
 	//EMPLEADOR PARA PERMITIR EL ACCESOS AL REGISTRO
 				
 				@Autowired
-				@Qualifier("ofertaServiceMysql")
-				IOfertaService ofertaService;
-				
-				@Autowired
 				@Qualifier("empleadorServiceMysql")
 				IEmpleadorService empleadorService;
-				@Autowired
-				Empleador empleador;
+				
+				@GetMapping("/empleador/nuevoo")
+				public String getCeFormPage(Model model) {
+					model.addAttribute("empleador", empleadorService.getEmpleador());
+					return "RegistroEmpleador";
+				}
 				
 				
+				@PostMapping("/empleador/guardarr")
+				public String getEResultPage(@Valid @ModelAttribute("empleador") Empleador unEmpleador, BindingResult result, Model model) {
+					
+					if(result.hasErrors()) {
+						model.addAttribute("empleador", unEmpleador);
+						return "RegistroEmpleador";
+					}else {
+						empleadorService.addEmpleador(unEmpleador);
+						return "loginRegistroEmpleador";			
+					}
+					
+
+				}
 				
-				@GetMapping("/empleador/nuevoR")
-				public String getSucursalFormPage(Model model) {
+				@GetMapping("/empleador/listarr")
+				public String getEmpleadoresPage(Model model) {
 					
-					model.addAttribute("empleador", this.empleador);
+					model.addAttribute("ciudadanos", ciudadanoService.getAllCiudadanos());
+					//model.addAttribute("empleados", empleadoService.getEmpleadosPorApellido("%"+"Torres"+"%"));
+					//model.addAttribute("empleados", empleadoService.getEmpleadosPorSueldo(25000));
 					
-					model.addAttribute("ofertas",  ofertaService.getAllOfertas());
-					return "nuevo-empleador";
-				
-				}	
-				@GetMapping("/empleador/guardarR")
-				public String getEmpleadoResultPage(Model model, 
-						@RequestParam(name="id") String id,
-						@RequestParam(name="cuit") String cuit,
-						@RequestParam(name="provincia") String provincia,
-						@RequestParam(name="empleador.id") String empleadorid) {
-					
-					Empleador em = new Empleador();
-					
-					
-					em.setProvincia(provincia);
-					em.setCuit(Integer.valueOf(cuit));
-					em.setEmpleador(this.ofertaService.getUnaOferta(Long.valueOf(empleadorid)).orElseThrow());
-					
-					empleadorService.addSucursal(em);
-					
-					model.addAttribute("empleadores", empleadorService.getEmpleadores());
-					return "LoginRegistroEmpleador";
-				}			
+					return "lista-ciudadano";
+				}		
 		
 		
 		
@@ -169,7 +147,18 @@ public class InicioController {
 	
 	
 	
-	
+	//portal para ciudadano
+			@GetMapping("/portal")
+			public String getPagePortal() {
+				return "InscripcionCurso";
+			}
+			
+			//portal para empleador
+					@GetMapping("/portal2")
+					public String getPagePortal2() {
+						return "InscripcionCurso2";
+					}
+		
 	
 	
 	

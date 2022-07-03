@@ -19,8 +19,10 @@ import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 @Component
@@ -61,6 +63,22 @@ public class Ciudadano {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
   
+	
+	
+	
+	
+	
+	
+	public int converte(int edadd) {
+		  
+		Period edad = Period.between(fechaNacimiento, LocalDate.now());
+			  edadd=edad.getYears();
+			return edadd;
+			//return localDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+		  }
+	
+	
+
 	@Column(name="contrasenia")
 	@NotBlank(message = "La contraseña no puede estar vacia")
 	private String contrasenia;
@@ -211,8 +229,16 @@ public class Ciudadano {
 		super();
 	}
 	
+	/*
+	public int convert(int edadd) {
+		   Period edad = Period.between(fechaNacimiento, LocalDate.now());
+			  edadd=edad.getYears();
+			return edadd;
+			//return localDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+		  }
 	
-  	
+	
+  	*/
 
 	/*
 	@Valid

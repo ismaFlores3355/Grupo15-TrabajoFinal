@@ -80,10 +80,10 @@
                                 <!--  
                                 <option selected>Ingrese un opcion</option>
                                 -->
-                                <option value="1">Casado</option>
-                                <option value="2">Soltero</option>
-                                <option value="3">Divorciado</option>
-                                <option value="4">Viudo</option>
+                                <option value="Casado">Casado</option>
+                                <option value="Soltero">Soltero</option>
+                                <option value="Divorciado">Divorciado</option>
+                                <option value="Viudo">Viudo</option>
                             </select>
                             <div class="alert-danger" th:if="${#fields.hasErrors('estadoCivil')}"
                                  th:errors="*{estadoCivil}"></div>
@@ -94,29 +94,28 @@
                                 <!--
                                  <option selected>Ingrese un opcion</option>
                                  -->
-                                <option value="1">Buenos Aires</option>
-                                <option value="2">Catamarca</option>
-                                <option value="3">Chacho</option>
-                                <option value="4">Chubut</option>
-                                <option value="5">Cordoba</option>
-                                <option value="6">Entre Rios</option>
-                                <option value="7">Formosa</option>
-                                <option value="8">Jujuy</option>
-                                <option value="9">La Pampa</option>
-                                <option value="10">La Rioja</option>
-                                <option value="11">Mendoza</option>
-                                <option value="12">Neuquen</option>
-                                <option value="13">Rio Negro</option>
-                                <option value="14">Salta</option>
-                                <option value="15">San Juan</option>
-                                <option value="16">San Juan</option>
-                                <option value="17">Santa Cruz</option>
-                                <option value="18">Santiago del Estero</option>
-                                <option value="19">Tierra del Fuego</option>
-                                <option value="20">Tucuman</option>
-                                <option value="21">Santa Fe</option>
-                                <option value="22">Corrientes</option>
-                                <option value="23">Misiones</option>
+                                <option value="Buenos Aires">Buenos Aires</option>
+                                <option value="Catamarca">Catamarca</option>
+                                <option value="Chaco">Chacho</option>
+                                <option value="Chubut">Chubut</option>
+                                <option value="Cordoba">Cordoba</option>
+                                <option value="Entre Rios">Entre Rios</option>
+                                <option value="Formosa">Formosa</option>
+                                <option value="Jujuy">Jujuy</option>
+                                <option value="La Pampa">La Pampa</option>
+                                <option value="La Rioja">La Rioja</option>
+                                <option value="Mendoza">Mendoza</option>
+                                <option value="Neuquen">Neuquen</option>
+                                <option value="Rio Negro">Rio Negro</option>
+                                <option value="Salta">Salta</option>
+                                <option value="San Juan">San Juan</option>
+                                <option value="Santa Cruz">Santa Cruz</option>
+                                <option value="Santiago del Estero">Santiago del Estero</option>
+                                <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                <option value="Tucuman">Tucuman</option>
+                                <option value="Santa Fe">Santa Fe</option>
+                                <option value="Corrientes">Corrientes</option>
+                                <option value="Misiones">Misiones</option>
                             </select>
                             <div class="alert-danger" th:if="${#fields.hasErrors('provincia')}"
                                  th:errors="*{provincia}"></div>
@@ -129,13 +128,15 @@
                                  th:errors="*{telefono}"></div>
                         </div>
                         <div class="col-md-5">
-                            <label for="fechaId" class="form-label">Fecha de Nacimiento</label>
+                            <label for="fechaId" class="form-label text-white">Fecha de Nacimiento</label>
                             <input th:field="*{fechaNacimiento}" type="date" class="form-control" id="fechaId"
                                    placeholder="Ingrese fecha de nac">
+                                   <div class="alert-danger" th:if="${#fields.hasErrors('fechaNacimiento')}"
+                                 th:errors="*{fechaNacimiento}"></div>
                         </div>
                         <div class="col-12">
                             <label for="idContras" class="form-label text-white">Contraseña</label>
-                            <input type="text" class="form-control" id="idContra" placeholder="Ingrese contraseña"
+                            <input type="password" class="form-control" id="idContra" placeholder="Ingrese contraseña"
                                    th:field="*{contrasenia}">
                             <div class="alert-danger" th:if="${#fields.hasErrors('contrasenia')}"
                                  th:errors="*{contrasenia}"></div>

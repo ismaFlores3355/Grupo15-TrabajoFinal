@@ -53,14 +53,14 @@
         <div class="row g-5 d-flex justify-content-center">
             <div class="col-md-7 col-lg-8">
                 <form action="/ciudadano/guardarr" th:object="${ciudadano}" method="post">
-                    <!--
+                    
                     <input type="hidden" th:field="*{id}" />
-                    <input type="hidden" th:field="*{usuario.id}" />
-                   -->
+				<input type="hidden" th:field="*{usuario.id}" />
+                  
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="firstDni" class="form-label text-white">D.N.I</label>
-                            <input type="text" class="form-control" id="firstDni" th:field="*{dni}">
+                            <input type="number" class="form-control" id="firstDni" th:field="*{dni}">
                             <div class="alert-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
                         </div>
                         <div class="col-sm-6">
@@ -142,6 +142,35 @@
                         </div>
                     </div>
                     <br/>
+                   <label for="idNosdsal" class="form-label text-white">DATOS DE USUARIO</label>
+                   <br/>
+				<label for="idNombreComercial" class="form-label text-white">Nombre de Usuario</label>
+				<input type="text" class="form-control form-control-sm"  th:field="*{usuario.username}">
+				<div class="alert-danger" th:if="${#fields.hasErrors('usuario.username')}" th:errors="*{usuario.username}"></div>
+				
+				<br/>
+
+				<label for="idNombsfsal" class="form-label text-white">Password</label>
+				<input type="password" class="form-control form-control-sm"  th:field="*{usuario.password}">
+				<div class="alert-danger" th:if="${#fields.hasErrors('usuario.password')}" th:errors="*{usuario.password}"></div>
+				<br/>
+
+				<div class="col-12">
+                            <label for="country" class="form-label text-white">Perfil</label>
+                            <select class="form-select" id="idEfsfsCivil" th:field="*{usuario.perfil}">
+                               
+                                <option value="CIUDADANO">CIUDADANO</option>
+                                
+                            </select>
+                            <div class="alert-danger" th:if="${#fields.hasErrors('usuario.perfil')}"
+                                 th:errors="*{usuario.perfil}"></div>
+                        </div>		 
+				<br/>
+                    
+                    
+                    
+                    
+                    
                     <input class="w-100 btn btn-primary btn-lg" type="submit" value="Enviar">
                 </form>
                 <br>

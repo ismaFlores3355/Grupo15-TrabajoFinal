@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.html.service.imp;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.html.entity.Ciudadano;
+import ar.edu.unju.fi.html.entity.Empleador;
 import ar.edu.unju.fi.html.repository.CiudadanoRepository;
 import ar.edu.unju.fi.html.service.ICiudadanoService;
 
@@ -59,4 +61,17 @@ public class CiudadanoServiceImpMySql implements ICiudadanoService {
 		
 	}
 
+	@Override
+	public List<Ciudadano> getCiudadanosFiltro(String provincia) {
+		List<Ciudadano> ciudadanos = new ArrayList<Ciudadano>();
+		//aplico el filtro si los dos parametros tiene valores o almenos algunos tiene
+		provincia = "%"+provincia+"%";
+		if (!provincia.isEmpty()) {
+			//agrego caracteres necesarios para que funcione el like
+			ciudadanos = this.ciudadanoRepository.findByProvinciaLike(provincia);
+		}  
+			
+		return ciudadanos;
+
+       }
 }

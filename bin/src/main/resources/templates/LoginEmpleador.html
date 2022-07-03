@@ -48,16 +48,16 @@
         </div>
         <div class="row g-5 d-flex justify-content-center">
             <div class="col-md-7 col-lg-8">
-                <form class="needs-validation" novalidate>
+                <form class="form" th:action="@{/login}" th:method="POST">
                     <div class="row g-3">
                         <div class="col-12">
                             <label for="idCuit" class="form-label text-white">C.U.I.T</label>
-                            <input type="number" class="form-control" id="idCuit" placeholder="Ingrese cuit (sin guiones)" value="" required>
+                            <input type="text" class="form-control" id="idCuit" placeholder="Ingrese cuit (sin guiones)" name="username">
                         </div>
 
                         <div class="col-12">
                             <label for="idContraseñaEmpleador" class="form-label text-white" >Contraseña</label>
-                            <input type="password" class="form-control" id="idContraseñaEmpleador" placeholder="Ingrese contraseña" value="" required>
+                            <input type="password" class="form-control" id="idContraseñaEmpleador" placeholder="Ingrese contraseña" name="password">
                         </div>
 
                     </div>
