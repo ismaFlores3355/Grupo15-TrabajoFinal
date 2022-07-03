@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.html.entity.Empleador;
@@ -16,7 +17,29 @@ public class EmpleadorServiceImpMySql implements IEmpleadorService  {
 	@Autowired
 	EmpleadorRepository empleadorRepository;
 	
+	//para el login
+	@Autowired
+	Empleador empleador;
 	
+	//para el login estos 2 metoods
+	@Override
+	public Empleador getEmpleador() {
+		//this.ciudadano.setDni("aa");
+		return this.empleador;
+	}
+	
+	@Override
+	public void addEmpleador(Empleador empleador) {
+		 
+		// TODO Auto-generated method stub
+				String pw = empleador.getUsuario().getPassword();
+				BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
+				empleador.getUsuario().setPassword(bCryptPasswordEncoder.encode(pw));
+		
+		
+		empleadorRepository.save(empleador);
+		
+	}
 	
 	@Override
 	public void addSucursal(Empleador empleador) {

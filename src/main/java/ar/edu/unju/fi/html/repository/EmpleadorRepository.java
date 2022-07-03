@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
+import ar.edu.unju.fi.html.entity.Ciudadano;
 import ar.edu.unju.fi.html.entity.Empleador;
 
 public interface EmpleadorRepository extends CrudRepository<Empleador, Long> {
@@ -14,6 +15,9 @@ public interface EmpleadorRepository extends CrudRepository<Empleador, Long> {
 	public List<Empleador> findByProvinciaLike(String nombre);
 	public List<Empleador> findByEmpleadorResumendelpLike(String apellido);
 	
+
+	//para el login de empleador.usuario
+		public Optional<Empleador> findByUsuarioUsername(String username);
 	
 
 }

@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import ar.edu.unju.fi.html.service.imp.LoginUsuarioEmpServiceImp;
 import ar.edu.unju.fi.html.service.imp.LoginUsuarioServiceImp;
 
 @Configuration
@@ -28,8 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 			.antMatchers(resources).permitAll()
-			.antMatchers("/","/empleador/nuevoR","/empleador/guardarR","/empleador/guardar", "/nuevoemp","/home","/loginn","/logine","/ciudadano/nuevoo","/empleador/nuevo","/ciudadano/guardarr","/loginciu","/loginemp").permitAll()
-			.antMatchers("/empleador/nuevoR","/empleador/guardarR","/nuevoemp","/empleador/guardar","/ciudadano/nuevo","/empleador/nuevo","/empleado/nuevo","/empleado/guardar","/ciudadano/nuevo", "/loginRegistroCiudadano", "/").hasAuthority("ADMIN")
+			.antMatchers("/","/portal","/portal2","/ciudadano/listar","/empleador/nuevoo","/empleador/guardarr","/empleador/nuevo","/empleador/listar", "/nuevoemp","/home","/loginn","/logine","/ciudadano/nuevoo","/ciudadano/guardarr","/loginciu","/loginemp").permitAll()
+			.antMatchers("/empleador/guardar","/ciudadano/nuevo","/empleado/nuevo","/empleado/guardar", "/").hasAuthority("ADMIN")
 			.anyRequest().authenticated()
 			.and()
 			.formLogin()
@@ -60,4 +61,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
     	auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
+    
+    //para empleador
+    @Autowired
+    LoginUsuarioEmpServiceImp userrDetailsService;
+    
+    @Autowired
+    public void configurerGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    	auth.userDetailsService(userrDetailsService).passwordEncoder(passwordEncoder());
+    }
+    
 }

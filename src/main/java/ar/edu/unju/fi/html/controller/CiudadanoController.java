@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.html.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.html.entity.Ciudadano;
+import ar.edu.unju.fi.html.entity.Empleador;
 import ar.edu.unju.fi.html.service.ICiudadanoService;
 
 @Controller
@@ -50,7 +53,41 @@ public class CiudadanoController {
 		//model.addAttribute("empleados", empleadoService.getEmpleadosPorApellido("%"+"Torres"+"%"));
 		//model.addAttribute("empleados", empleadoService.getEmpleadosPorSueldo(25000));
 		
-		return "lista-empleado";
+		return "lista-ciudadanosencontrados";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/ciudadano/filtrar")
+	public String getSucursalFiltro(Model model,
+			@RequestParam(name="filtroempleadorprovincia") String filtrosucursalnombre) {
+		
+
+		//llamar al un metodo del service pasando el parametro para que filtre las 
+		//empleadores conincidentes, en el método del service puede varios if para validar cada tres situaciones
+		//posibles 1) que ingrese solo filtrosucursalnombre 2) que ingrese filtroencargadoapellido 3) que ingrese
+		//ambos valores
+		//En todos los casos se debe retornar un List<Sucursales> lista de sucursales que coindidieron con los params
+		
+		List<Ciudadano> ciudadanos = this.ciudadanoService.getCiudadanosFiltro(filtrosucursalnombre);
+		
+		
+		model.addAttribute("ffiltroempleadorprovincia", filtrosucursalnombre);
+		
+		model.addAttribute("ciudadanos", ciudadanos);
+		return "lista-ciudadanosencontrados";
+	}
+	
+	
+	
+	
+	
+	
+	
 
 }

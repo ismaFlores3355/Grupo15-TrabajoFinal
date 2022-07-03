@@ -53,6 +53,12 @@ public class CiudadanoServiceImp implements ICiudadanoService {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public List<Ciudadano> getCiudadanosFiltro(String provincia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

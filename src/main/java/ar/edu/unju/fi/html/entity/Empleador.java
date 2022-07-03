@@ -24,9 +24,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
+@Component
 @Entity
 @Table(name="empleadores")
-@Component
 public class Empleador {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,23 +34,23 @@ public class Empleador {
 	private Long id;
 	
 	@Column(name="cant_vacantes")
-	//@Min(value=8, message = "debe ser mayor a 8 digitos")
+	@Min(value=8, message = "debe ser mayor a 8 digitos")
 	private int cuit;
 	
 	@Column(name="contrasenia")
-	//@NotEmpty(message = "la contrasenia no puede estar vacio")
+	@NotEmpty(message = "la contrasenia no puede estar vacio")
 	private String contrasenia;
 	
 	@Column(name="razon_social")
-	//@NotEmpty(message = "la razon social no puede estar vacio")
+	@NotEmpty(message = "la razon social no puede estar vacio")
 	private String razons;
 	
 	@Column(name="nombre_comercial")
-	//@NotEmpty(message = "el nombre comercial no puede estar vacio")
+	@NotEmpty(message = "el nombre comercial no puede estar vacio")
 	private String nombrec;
 	
 	@Column(name="email")
-	//@Email @NotEmpty
+	@Email @NotEmpty
 	private String email;
 	
 	@Column(name="fechain")
@@ -58,23 +58,23 @@ public class Empleador {
 	private LocalDate fechaInicioa;
 	
 	@Column(name="telefono")
-	//@Min(value=1000000, message = "debe ser mayor a 8 digitos")
+	@Min(value=1000000, message = "debe ser mayor a 8 digitos")
 	private int telefono;
 	
 	@Column(name="domicilio")
-	//@NotEmpty(message = "el domicilio no puede estar vacio")
+	@NotEmpty(message = "el domicilio no puede estar vacio")
 	private String domicilio;
 	
 	@Column(name="provincia")
-	//@NotEmpty(message = "la provincia no puede estar vacio")
+	@NotEmpty(message = "la provincia no puede estar vacio")
 	private String provincia;
 	
 	@Column(name="pagina_Web")
-	//@NotEmpty(message = "la pagina web no puede estar vacio")
+	@NotEmpty(message = "la pagina web no puede estar vacio")
 	private String paginaw;
 	
 	@Column(name="descripcion")
-	//@NotEmpty(message = "la descripcion no puede estar vacio")
+	@NotEmpty(message = "la descripcion no puede estar vacio")
 	private String descripcion;
 
 	
@@ -82,13 +82,21 @@ public class Empleador {
 	@Valid
 	@Autowired
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "usu_id")
+	@JoinColumn(name = "usuaz_id")
 	private Usuario usuario;
 	
 	
 	
 	
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	@Autowired
 	@ManyToOne
 	@JoinColumn(name="of_id")

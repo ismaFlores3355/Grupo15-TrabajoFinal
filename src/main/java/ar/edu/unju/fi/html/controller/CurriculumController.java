@@ -37,6 +37,17 @@ public class CurriculumController {
 			return "VerCV";			
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/*
 	@GetMapping("/ciudadano/listar")
 	public String getCiudadanosPage(Model model) {
