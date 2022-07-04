@@ -36,25 +36,37 @@ public class InicioController {
 	}
 	
 	
-	//login registro ciudadano
+	/**
+	 * login/ciu redirije a a la pagina loginRegistroCiudadano para
+	 * registrarse como ciudadano y tambien poder logearse con la cuenta 
+	 * registrada en ciudadano , con los datos Usuario.username y Usuario.password
+	 * @return
+	 */
 	@GetMapping("/loginciu")
 	public String getPageCiudadano() {
 		return "loginRegistroCiudadano";
 	}
 	
-	//login registro empleador
+	/**
+	 * "loginemp" registro redirije a a la pagina loginRegistroEmpleador para
+	 * registrarse como empleador y tambien poder logearse con la cuenta 
+	 * registrada en empleador ,con los datos Usuario.username y Usuario.password
+	 * @return
+	 */
 			@GetMapping("/loginemp")
 			public String getPageEmpleador() {
 				return "loginRegistroEmpleador";
 			}
+			
+			
 	
-	//login para logearse con username y password en ciudadano
+	//loginn para logearse con username y password en ciudadano
 	@GetMapping("/loginn")
 	public String getPageeHome() {
 		return "LoginCiudadano";
 	}
 	
-	//login para logearse con username y password en empleador
+	//logine para logearse con username y password en empleador
 		@GetMapping("/logine")
 		public String getPageem() {
 			return "LoginEmpleador";
@@ -65,7 +77,10 @@ public class InicioController {
 		
 		
 		
-	//EMPLEADOR PARA PERMITIR EL ACCESOS AL REGISTRO
+		/**
+		 metodos para crear un nuevo empleador y guardarlo en la bd
+		 * @return
+		 */
 				
 				@Autowired
 				@Qualifier("empleadorServiceMysql")
@@ -108,8 +123,11 @@ public class InicioController {
 		
 	
 	
+				/**
+				 metodos para crear un nuevo ciudadano y guardarlo en la bd
+				 * @return
+				 */
 	
-	//CIUDADANO PARA PERMITIR EL ACCESO AL REGISTRO
 	@Autowired
 	@Qualifier("ciudadanoServiceMysql")
 	ICiudadanoService ciudadanoService;
@@ -147,13 +165,19 @@ public class InicioController {
 	
 	
 	
-	//portal para ciudadano
+	/**
+	 /portal para acceseder al portal del ciudadano
+	 * @return
+	 */
 			@GetMapping("/portal")
 			public String getPagePortal() {
 				return "InscripcionCurso";
 			}
 			
-			//portal para empleador
+			/**
+			 /portal para acceseder al portal del empleador
+			 * @return
+			 */
 					@GetMapping("/portal2")
 					public String getPagePortal2() {
 						return "InscripcionCurso2";

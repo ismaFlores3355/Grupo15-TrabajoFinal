@@ -35,11 +35,11 @@ public class Ciudadano {
 	private Long id;
 	
 	@Column(name="dni")
-	@Min(value=100000, message = "El dni debe ser mayor o igual a 1.000.000")
+	@Min(value=100000, message = "El dni debe ser mayor o igual a 100000")
 	private int dni;
 
 	@Column(name="nrotramite")
-	//@NotBlank(message = "En nro de tramite no puede estar vacio")
+	@Min(value=1, message = "El nro de tramite debe ser mayor a 1")
 	private int nroTramite;
 
 	@Column(name="email")
@@ -51,15 +51,15 @@ public class Ciudadano {
 	private String estadoCivil;
   
 	@Column(name="provincia")
-	@NotEmpty(message = "La provincia no estar vacia")
+	@NotEmpty(message = "La provincia no puede estar vacia")
 	private String provincia;
    
 	@Column(name="telefono")
-	//@NotEmpty(message = "El telefono no puede estar vacio")
+	@Min(value=100000, message = "El telefono debe ser mayor o igual a 100000")
 	private int telefono;
    
 	@Column(name="fechanaci")
-	//@NotBlank @Past(message = "La fecha debe ser anterior a la fecha actual")
+	@Past(message = "La fecha debe ser anterior a la fecha actual")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
   
@@ -135,11 +135,11 @@ public class Ciudadano {
 		this.id = id;
 	}
 
-	public @Min(value = 100000, message = "El dni debe ser mayor o igual a 1.000.000") int getDni() {
+	public @Min(value = 100000, message = "El dni debe ser mayor o igual a 100000") int getDni() {
 		return dni;
 	}
 
-	public void setDni(@Min(value = 100000, message = "El dni debe ser mayor o igual a 1.000.000") int dni) {
+	public void setDni(@Min(value = 100000, message = "El dni debe ser mayor o igual a 100000") int dni) {
 		this.dni = dni;
 	}
 
