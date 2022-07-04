@@ -33,7 +33,7 @@ public class Curriculum {
     private String nombre;
     
 	@Column(name="curri_dni")
-    //@Min(value = 1_000_000, message = "El dni debe ser mayor o igual a 1.000.000")
+    @Min(value = 100000, message = "El dni debe ser mayor o igual a 100000")
     private int dni;
     
 	@Column(name="curri_domicilio")
@@ -41,16 +41,19 @@ public class Curriculum {
     private String domicilio;
    
 	@Column(name="curri_contacto")
-    //@NotEmpty(message = "El contacto no puede estar vacio")
+	 @Min(value = 100000, message = "El telefono debe ser mayor o igual a 100000")
     private int contacto;
 
 	@Column(name="curri_experiencial")
+	 @NotEmpty(message = "La experiencia laboral no puede estar vacia")
     private String experienciaLaboral;
 
 	@Column(name="curri_educacion")
+	 @NotEmpty(message = "La educacion no puede estar vacia")
     private String educacion;
 
 	@Column(name="curri_idioma")
+	@NotEmpty(message = "El idioma no puede estar vacio")
     private String idioma;
 
 	@Column(name="curri_conocInf")

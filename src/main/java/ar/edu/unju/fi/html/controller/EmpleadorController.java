@@ -70,8 +70,8 @@ public class EmpleadorController {
 			@RequestParam(name="id") String id,
 			@RequestParam(name="cuit") String cuit,
 			@RequestParam(name="provincia") String provincia,
-			@RequestParam(name="empleador.id") String empleadorid,
-	        @RequestParam(name="usuario") String usuario)
+			@RequestParam(name="empleador.id") String empleadorid)
+	        
 	{
 		
 		Empleador em = new Empleador();

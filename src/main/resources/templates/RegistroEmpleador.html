@@ -61,7 +61,7 @@
 
                         <div class="col-sm-6">
                             <label for="idContraseña" class="form-label text-white">Contraeña</label>
-                            <input th:field="*{contrasenia}" type="text" class="form-control" id="idContraseña" placeholder="Ingrese contraseña">
+                            <input th:field="*{contrasenia}" type="password" class="form-control" id="idContraseña" placeholder="Ingrese contraseña">
                             <div class="text-info" th:if="${#fields.hasErrors('contrasenia')}" th:errors="*{contrasenia}"></div>
                         </div>
 

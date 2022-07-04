@@ -13,7 +13,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <i class="bi bi-person-workspace me-1"></i>
-        <a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
+        <a class="navbar-brand" th:href="@{/login}">Inicio</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -49,18 +49,27 @@
                 <form class="form" th:action="@{/login}" th:method="POST">
                     <div class="row g-3">
                         <div class="col-12">
-                            <label for="idDni" class="form-label">D.N.I</label>
-                            <input type="text" class="form-control" id="idDni" placeholder="Ingrese DNI" name="username">
+                            <label for="idDni" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="idDni" placeholder="Ingrese username" name="username">
                         </div>
                         <div class="col-12">
-                            <label for="idContraseña" class="form-label" >Contraseña</label>
-                            <input type="password" class="form-control" id="idContraseña" placeholder="Ingrese contraseña" name="password">
+                            <label for="idContraseña" class="form-label" >Password</label>
+                            <input type="password" class="form-control" id="idContraseña" placeholder="Ingrese password" name="password">
                         </div>
                     </div>
                     <br>
                     <button class="w-100 btn btn-primary btn-lg" type="submit">Loguearse</button>
-                <div class="alert-danger text-center" th:if="${param.error}">CREDENCIALES INCORRECTAS</div>
+                <div class="alert-danger text-center"
+						th:if="${formLoginErrorMessage}" th:text="${formLoginErrorMessage}">Name
+						Error</div>
                 </form>
+                
+                <div th:if="${param.error}" class="alert alert-danger" role="alert">
+					Combinación Invalida de Usuario y Contraseña</div>
+				<div th:if="${param.logout}" class="alert alert-success" role="alert">
+					Ha salido del Sistema. Gracias!</div>
+                
+                
                 <br>
             </div>
         </div>

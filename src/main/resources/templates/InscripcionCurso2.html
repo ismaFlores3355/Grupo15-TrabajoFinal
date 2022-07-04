@@ -34,6 +34,11 @@
                         Cerrar Sesion
                     </a>
                 </li>
+                <div class="nav-item dropdown" sec:authorize="isAuthenticated()">		    
+						<form th:action="@{/logout}" method="post">
+	    					<spam sec:authentication="username"></spam> 	<input type="submit" value ="logout">
+	 					</form>
+ 					</div>
                 <!-- <li class="nav-item">
                   <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li> -->

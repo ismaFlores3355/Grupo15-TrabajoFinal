@@ -23,25 +23,31 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Crear Curriculum</a>
+                    <a class="nav-link" th:href="@{/curriculum/nuevo}">Crear Curriculum</a>
                 </li>
+                
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ver Curriculum</a>
+                    <a class="nav-link" th:href="@{/oferta/listar}">Oferta Laboral</a>
                 </li>
+                
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Oferta Laboral</a>
+                    <a class="nav-link" th:href="@{/empleador/listar}">Inscripcion Curso</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Inscripcion Curso</a>
-                </li>
+ 
             </ul>
             <ul class="nav navbar-nav nav-flex-icons ml-auto ms-auto flex-row">
                 <li class="nav-item dropdown">
-                    <a class="nav-link  btn btn-outline-success me-3" href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Salir
+                    <a class="nav-link  btn btn-outline-success me-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Cerrar Sesion
                     </a>
                 </li>
+                
+                <div class="nav-item dropdown" sec:authorize="isAuthenticated()">		    
+						<form th:action="@{/logout}" method="post">
+	    					<spam sec:authentication="username"></spam> 	<input type="submit" value ="logout">
+	 					</form>
+ 					</div>
+                
                 <!-- <li class="nav-item">
                   <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li> -->
@@ -75,8 +81,8 @@
                             <tr>
                                 
                                 <td th:text="${curriculum.apellido}"></td>
-                                <td data-label="Nombres:">Lorem ipsum dolor sit amet.</td>
-                                <td data-label="DNI:">59213562</td>
+                                <td data-label="${curriculum.nombre}">Lorem ipsum dolor sit amet.</td>
+                                <td data-label="DNI:">"${curriculum.nombre}"</td>
                                 <td data-label="Domicilio:">Lorem ipsum dolor sit amet. 280</td>
                                 <td data-label="Contacto:">+543889694998</td>
                             </tr>
@@ -89,52 +95,47 @@
                         <h3>EXPERIENCIA LABORAL</h3>
                         <ul>
                             <li> <a th:text="${curriculum.experienciaLaboral}"></a> </li>
-                            <li> Programacion</li>
+                           
                         
                         </ul>
                     </div>
                     <div>
                         <h3>EDUCACION</h3>
                         <ul>
-                            <li> Facultad de Ingenieria</li>
-                            <li> Facultad de Ingenieria</li>
+                            <li> <a th:text="${curriculum.educacion}"></a> </li>
+                            <li> Facultad de Ingenieria UNJU</li>
                         </ul>
                     </div>
                     <div>
                         <h3>IDIOMAS</h3>
                         <ul>
-                            <li>Español</li>
-                            <li>Ingles</li>
+                            <li> <a th:text="${curriculum.idioma}"></a> </li>
+                            
                         </ul>
                     </div>
                     <div>
                         <h3>CONOCIMIENTOS INFORMATICOS</h3>
                         <ul>
-                            <li>Python</li>
-                            <li>C++</li>
+                             <li> <a th:text="${curriculum.conocimientoInformatico}"></a> </li>
+                            
+                            
                         </ul>
                     </div>
                     <div>
                         <h3>INFORMACION COMPLEMENTARIA</h3>
                         <ul>
-                            <li>Lorem ipsum dolor sit amet. Est numquam molestias qui consectetur voluptate et quas
-                                voluptatem?
-                            </li>
+                            <li> <a th:text="${curriculum.informacionComplementaria}"></a> </li>
                         </ul>
                     </div>
                     <div>
                         <h3>DATOS ADICIONALES</h3>
                         <ul>
-                            <li>Lorem ipsum dolor sit amet. Est numquam molestias qui consectetur voluptate et quas
-                                voluptatem?
-                            </li>
-                            <li>Lorem ipsum dolor sit amet. Est numquam molestias qui consectetur voluptate et quas
-                                voluptatem?
-                            </li>
+                          <li> <a th:text="${curriculum.datoAdicional}"></a> </li>  
                         </ul>
 
                     </div>
-
+        
+                    
                 </div>
             </div>
             
