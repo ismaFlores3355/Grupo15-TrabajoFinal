@@ -2,14 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Ver Curriculum</title>
+    <title>Crear Curriculum</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
-<body class="body-verCV">
+<body class="body-registroCiudadano">
 
 <!-- Barra de Navegacion -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -20,18 +20,18 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/curriculum/nuevo}">Crear Curriculum</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/empleador/listar}">Oferta Laboral</a>
+                    <a class="nav-link" th:href="@{/oferta/listar}">Oferta Laboral</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/curso/lise}">Inscripcion Curso</a>
+                    <a class="nav-link" th:href="@{/empleador/listar}">Inscripcion Curso</a>
                 </li>
  
             </ul>
@@ -56,54 +56,15 @@
     </div>
 </nav>
 
-<!-- contenido del curriculum -->
-
-<div class="container">
-	<div class="row">
-		<section class="col-sm-6 col-md-9 bg-light">
-		      
-			<form action="/empleador/filtrar" method="get" class="border">
-				<label for="idnombre" class="form-label form-label">Nombre Suc</label>
-				<input type="text" id="idnombre" class="form-control form-control-sm"  th:value="${filtroempleadorprovincia}"
-				 name="filtroempleadorprovincia" ><br/>
-		
-				<input type="submit" value="Filtrar" class="btn btn-primary m-3">
-				<br/>
-			</form>
-		
-			<br/>
-			<div class="btn btn-success">
-				<a th:href="@{/empleador/nuevo}">Nuevo</a>			
-			</div>
-			
-			<div class="bg-primary titulo01 col-12 text-center">
-				<h3>LISTADO DE EMPLEADORES Y LA OFERTA</h3>
-			</div>
-			<div class="table-responsive">
-					<table class="table table-striped">
-						<tr>							
-							<th>Provincia</th>
-							<th>cuit</th>
-							<th>Email</th>
-							<th>Oferta / puesto requerido</th>							
-						</tr>
-						<tr th:each="s: ${empleadores}">
-							<td th:text="${s.provincia}"></td>
-							<td th:text="${s.cuit}"></td>
-							<td th:text="${s.email}"></td>
-							<!--  
-							<td th:text="${s.empleador.puestorequerido}"></td>
-							-->
-						</tr>
-					</table>			
-			</div>
-
-		</section>
-		
-	</div>	
-	
+<!-- Ingreso de Datos -->
+<div class="container ">
+    <label for="NroTramite" class="form-label text-white">GRACIAS POR INSCRIBIRSE</label>
+    
+    <li class="nav-item">
+                    <a class="nav-link" th:href="@{/curso/lise}">VOLVER</a>
+                </li>
 </div>
- 
+
 <footer th:replace="/layouts/footer :: footer"></footer>
 <script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
 <script type="text/javascript" th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>

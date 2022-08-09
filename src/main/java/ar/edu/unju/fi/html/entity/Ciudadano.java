@@ -103,6 +103,55 @@ public class Ciudadano {
 	@OneToMany(mappedBy = "empleadorr")
 	private List<Empleador> empleados;
 	
+	
+	@Autowired
+	@ManyToOne
+	@JoinColumn(name="curso_id")
+	private Curso curso;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public Ciudadano(Long id, @Min(value = 100000, message = "El dni debe ser mayor o igual a 100000") int dni,
+			@Min(value = 1, message = "El nro de tramite debe ser mayor a 1") int nroTramite,
+			@Email @NotEmpty String email,
+			@NotEmpty(message = "El estado civil no puede estar vacio") String estadoCivil,
+			@NotEmpty(message = "La provincia no puede estar vacia") String provincia,
+			@Min(value = 100000, message = "El telefono debe ser mayor o igual a 100000") int telefono,
+			@Past(message = "La fecha debe ser anterior a la fecha actual") LocalDate fechaNacimiento,
+			@NotBlank(message = "La contraseña no puede estar vacia") String contrasenia, String perfil,
+			@Valid Usuario usuario, Empleador empleador, List<Empleador> empleados, Curso curso) {
+		super();
+		this.id = id;
+		this.dni = dni;
+		this.nroTramite = nroTramite;
+		this.email = email;
+		this.estadoCivil = estadoCivil;
+		this.provincia = provincia;
+		this.telefono = telefono;
+		this.fechaNacimiento = fechaNacimiento;
+		this.contrasenia = contrasenia;
+		this.perfil = perfil;
+		this.usuario = usuario;
+		this.empleador = empleador;
+		this.empleados = empleados;
+		this.curso = curso;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
 	public Empleador getEmpleador() {
 		return empleador;
 	}

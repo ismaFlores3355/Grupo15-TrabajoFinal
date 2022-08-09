@@ -12,14 +12,14 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container-fluid">
 				<i class="bi bi-person-workspace me-1"></i>
-				<a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
+				<a class="navbar-brand" th:href="@{/login}">Inicio</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse " id="navbarSupportedContent">
 					<ul class="nav navbar-nav nav-flex-icons ml-auto ms-auto flex-row d-grid gap-2">
 						<li class="nav-item dropdown">
-							<a class="nav-link  btn btn-outline-success me-3" th:href="@{/loginciu}" id="navbarDropdown" role="button">
+							<a class="nav-link  btn btn-outline-success" th:href="@{/loginciu}" id="navbarDropdown" role="button">
 								Ciudadano
 							<!--  	
 							<a class="nav-link  btn btn-outline-success me-3" href="/loginRegistroCiudadano" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">	
@@ -69,7 +69,13 @@
 		</div>
 		</div>
 		</section>
-		
+		 <div th:if="${param.error}" class="alert alert-danger" role="alert">
+					Combinación Invalida de Usuario y Contraseña</div>
+				<div th:if="${param.logout}" class="alert alert-success" role="alert">
+					Ha salido del Sistema. Gracias!</div>
+                
+                
+                <br>
 		
 		<footer th:replace="/layouts/footer :: footer"></footer>
 		<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
