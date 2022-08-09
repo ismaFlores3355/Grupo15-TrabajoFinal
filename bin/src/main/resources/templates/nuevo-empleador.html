@@ -69,11 +69,11 @@
           
           
 			<h3>GESTION DE SUCURSAL</h3>
-			<form action="/empleador/guardaR" th:object="${empleador}" method="get">
+			<form action="/empleador/guardar" th:object="${empleador}" method="get">
 				
 				
 				 <input type="hidden" th:field="*{id}" />
-				<input type="hidden" th:field="*{usuario.id}" />
+				
 				
 				
 				<label for="txtapelfslido" class="form-label">Cuit</label>
@@ -83,7 +83,7 @@
 				
 				<br/>
 				<label for="txtapellido" class="form-label">Contraseña</label>
-				<input id="txtapellido" class="form-control form-control-sm" type="text" th:field="*{contrasenia}" placeholder="Ingrese contrasenia...">
+				<input id="txtapellido" class="form-control form-control-sm" type="password" th:field="*{contrasenia}" placeholder="Ingrese contrasenia...">
 				<div class="alert-danger" th:if="${#fields.hasErrors('contrasenia')}" th:errors="*{contrasenia}"></div>	
 				<br/>
 				
@@ -123,9 +123,36 @@
 				<br/>
 				
 				<br/>
-				<label for="txtdsido" class="form-label">Provincia</label>
-				<input id="txtfsllido" class="form-control form-control-sm" type="text" th:field="*{provincia}" placeholder="Ingrese provincia...">
-				<div class="alert-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>	
+				<label for="country" class="form-label text-white">Provincia</label>
+                            <select class="form-select" id="idProvincia" th:field="*{provincia}">
+                                <!--
+                                 <option selected>Ingrese un opcion</option>
+                                 -->
+                                <option value="Buenos Aires">Buenos Aires</option>
+                                <option value="Catamarca">Catamarca</option>
+                                <option value="Chaco">Chacho</option>
+                                <option value="Chubut">Chubut</option>
+                                <option value="Cordoba">Cordoba</option>
+                                <option value="Entre Rios">Entre Rios</option>
+                                <option value="Formosa">Formosa</option>
+                                <option value="Jujuy">Jujuy</option>
+                                <option value="La Pampa">La Pampa</option>
+                                <option value="La Rioja">La Rioja</option>
+                                <option value="Mendoza">Mendoza</option>
+                                <option value="Neuquen">Neuquen</option>
+                                <option value="Rio Negro">Rio Negro</option>
+                                <option value="Salta">Salta</option>
+                                <option value="San Juan">San Juan</option>
+                                <option value="Santa Cruz">Santa Cruz</option>
+                                <option value="Santiago del Estero">Santiago del Estero</option>
+                                <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                <option value="Tucuman">Tucuman</option>
+                                <option value="Santa Fe">Santa Fe</option>
+                                <option value="Corrientes">Corrientes</option>
+                                <option value="Misiones">Misiones</option>
+                            </select>
+                            <div class="alert-danger" th:if="${#fields.hasErrors('provincia')}"
+                                 th:errors="*{provincia}"></div>
 				<br/>
 				
 				<br/>
@@ -139,43 +166,20 @@
 				<input id="txtfsdsdo" class="form-control form-control-sm" type="text" th:field="*{descripcion}" placeholder="Ingrese descripcion...">
 				<div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>	
 				<br/>
-				<label for="idEncargado" class="form-label form-label">Encargado</label>
+				<label for="idEncargado" class="form-label form-label">Oferta IMPORTANTE! Puesto Requerido</label>
 				<select class="form-control" th:field="*{empleador.id}">
 					<option th:each=" e: ${ofertas}" th:value="${e.id}" >
-						<spam th:text="${e.puestorequerido}"></spam>-<spam th:text="${e.disponibilidadh}"></spam>
+						<spam th:text="${e.puestorequerido}"></spam>
 					</option>
 				</select><br/>
-				<input type="submit" value="enviar" class="btn btn-primary">
-			
-			
-			 <label for="idNosdsal" class="form-label text-white">DATOS DE USUARIO</label>
-                   <br/>
-				<label for="idNombreComercial" class="form-label text-white">Nombre de Usuario</label>
-				<input type="text" class="form-control form-control-sm"  th:field="*{usuario.username}">
-				<div class="alert-danger" th:if="${#fields.hasErrors('usuario.username')}" th:errors="*{usuario.username}"></div>
 				
-				<br/>
-
-				<label for="idNombsfsal" class="form-label text-white">Password</label>
-				<input type="password" class="form-control form-control-sm"  th:field="*{usuario.password}">
-				<div class="alert-danger" th:if="${#fields.hasErrors('usuario.password')}" th:errors="*{usuario.password}"></div>
-				<br/>
-
-				<div class="col-12">
-                            <label for="country" class="form-label text-white">Perfil</label>
-                            <select class="form-select" id="idEfsfsCivil" th:field="*{usuario.perfil}">
-                               
-                                <option value="EMPLEADOR">EMPLEADOR</option>
-                                
-                            </select>
-                            <div class="alert-danger" th:if="${#fields.hasErrors('usuario.perfil')}"
-                                 th:errors="*{usuario.perfil}"></div>
-                        </div>		 
-				<br/>
 			
 			
 			
 			
+			
+			
+			<input type="submit" value="enviar" class="btn btn-primary">
 			
 			
 			

@@ -20,20 +20,15 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/curriculum/nuevo}">Crear Curriculum</a>
+                    <a class="nav-link" th:href="@{/ciudadano/listar}">Busqueda de ciudadanos por provincia</a>
                 </li>
-                
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/empleador/listar}">Oferta Laboral</a>
+                    <a class="nav-link" th:href="@{/oferta/listar}">Ofertas Laborales</a>
                 </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/curso/lise}">Inscripcion Curso</a>
-                </li>
- 
+              
             </ul>
             <ul class="nav navbar-nav nav-flex-icons ml-auto ms-auto flex-row">
                 <li class="nav-item dropdown">
@@ -41,13 +36,11 @@
                         Cerrar Sesion
                     </a>
                 </li>
-                
                 <div class="nav-item dropdown" sec:authorize="isAuthenticated()">		    
 						<form th:action="@{/logout}" method="post">
 	    					<spam sec:authentication="username"></spam> 	<input type="submit" value ="logout">
 	 					</form>
  					</div>
-                
                 <!-- <li class="nav-item">
                   <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li> -->
@@ -62,8 +55,8 @@
 	<div class="row">
 		<section class="col-sm-6 col-md-9 bg-light">
 		      
-			<form action="/empleador/filtrar" method="get" class="border">
-				<label for="idnombre" class="form-label form-label">Nombre Suc</label>
+			<form action="/ciudadano/filtrar" method="get" class="border">
+				<label for="idnombre" class="form-label form-label">Provincia</label>
 				<input type="text" id="idnombre" class="form-control form-control-sm"  th:value="${filtroempleadorprovincia}"
 				 name="filtroempleadorprovincia" ><br/>
 		
@@ -73,29 +66,34 @@
 		
 			<br/>
 			<div class="btn btn-success">
-				<a th:href="@{/empleador/nuevo}">Nuevo</a>			
+				<a th:href="@{/ciudadano/nuevo}">Nuevo</a>			
 			</div>
 			
 			<div class="bg-primary titulo01 col-12 text-center">
-				<h3>LISTADO DE EMPLEADORES Y LA OFERTA</h3>
+				<h3>LISTADO DE CIUDADANOS POR PROVINCIA</h3>
 			</div>
 			<div class="table-responsive">
 					<table class="table table-striped">
 						<tr>							
+							
 							<th>Provincia</th>
-							<th>cuit</th>
+							<th>telefono</th>
 							<th>Email</th>
-							<th>Oferta / puesto requerido</th>							
+							<th>Fecha de nacimiento</th>
+													
 						</tr>
-						<tr th:each="s: ${empleadores}">
+						<tr th:each="s: ${ciudadanos}">
 							<td th:text="${s.provincia}"></td>
-							<td th:text="${s.cuit}"></td>
+							<td th:text="${s.telefono}"></td>
 							<td th:text="${s.email}"></td>
+							<td th:text="${s.fechaNacimiento}"></td>
 							<!--  
 							<td th:text="${s.empleador.puestorequerido}"></td>
 							-->
 						</tr>
-					</table>			
+					</table>	
+					
+							
 			</div>
 
 		</section>

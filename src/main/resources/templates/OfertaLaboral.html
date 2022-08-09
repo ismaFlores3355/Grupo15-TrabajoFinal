@@ -23,17 +23,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/curriculum/nuevo}">Crear Curriculum</a>
+                    <a class="nav-link" th:href="@{/ciudadano/listar}">Busqueda de ciudadanos por provincia</a>
                 </li>
-                
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/oferta/listar}">Oferta Laboral</a>
+                    <a class="nav-link" th:href="@{/oferta/listar}">Ofertas Laborales</a>
                 </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/empleador/listar}">Inscripcion Curso</a>
-                </li>
- 
+              
             </ul>
             <ul class="nav navbar-nav nav-flex-icons ml-auto ms-auto flex-row">
                 <li class="nav-item dropdown">
@@ -41,13 +36,11 @@
                         Cerrar Sesion
                     </a>
                 </li>
-                
                 <div class="nav-item dropdown" sec:authorize="isAuthenticated()">		    
 						<form th:action="@{/logout}" method="post">
 	    					<spam sec:authentication="username"></spam> 	<input type="submit" value ="logout">
 	 					</form>
  					</div>
-                
                 <!-- <li class="nav-item">
                   <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li> -->
